@@ -1,0 +1,49 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Social Network' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Social Network
+  
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'XLPagerTabStrip', '~> 8.0'
+  pod 'SideMenu'
+  pod 'Cosmos'
+  pod 'PinCodeTextField'
+  pod 'Kingfisher'
+
+  
+  #common
+  pod 'MBProgressHUD', '~> 1.1.0'
+  pod 'RealmSwift'
+
+  # Alamofire
+  pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireNetworkActivityLogger'
+
+  # API
+  pod 'SwiftyJSON'
+  pod 'ObjectMapper'
+
+  # Reactive
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
+
+  # Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+
+  # Pods for Format
+  pod 'SideMenu'
+ 
+  pod 'IQKeyboardManagerSwift'
+
+  # Facebook
+  pod 'FBSDKCoreKit', '~> 4.38.0'
+  pod 'FBSDKShareKit', '~> 4.38.0'
+  pod 'FBSDKLoginKit', '~> 4.38.0'
+  pod 'FacebookCore'
+
+end

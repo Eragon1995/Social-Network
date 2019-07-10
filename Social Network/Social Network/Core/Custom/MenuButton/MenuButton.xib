@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuButton" customModule="TokyoLife" customModuleProvider="target">
+            <connections>
+                <outlet property="circleBg" destination="YWc-Mf-nLK" id="PHB-A6-qUB"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="O37-TM-Vch"/>
+                <outlet property="imageIcon" destination="rYr-Bj-IpD" id="uGg-vK-FQo"/>
+                <outlet property="labelNumber" destination="rml-Y5-hds" id="xc8-7K-nve"/>
+                <outlet property="labelTitle" destination="MG5-Uz-Uu1" id="qaw-te-nzc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMF-0F-dHv" userLabel="ButtonContainer">
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                    <connections>
+                        <action selector="menuOnClick:" destination="-1" eventType="touchUpInside" id="pNL-bA-jJn"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_account" translatesAutoresizingMaskIntoConstraints="NO" id="rYr-Bj-IpD" userLabel="Image Icon">
+                    <rect key="frame" x="20" y="8" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="P8H-dj-tYb"/>
+                        <constraint firstAttribute="height" constant="24" id="meU-5x-Wsk"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="imageTintColor">
+                            <color key="value" red="0.46274509803921571" green="0.46274509803921571" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YWc-Mf-nLK" userLabel="CircleBg">
+                    <rect key="frame" x="34" y="2" width="20" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rml-Y5-hds" customClass="UIBoldLabel" customModule="TokyoLife" customModuleProvider="target">
+                            <rect key="frame" x="3" y="3" width="14.5" height="10"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isFitSize" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.25887749599999998" blue="0.1826898528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="rml-Y5-hds" firstAttribute="centerY" secondItem="YWc-Mf-nLK" secondAttribute="centerY" constant="-2" id="7eX-va-3rp"/>
+                        <constraint firstAttribute="height" constant="20" id="Vyw-dp-24L"/>
+                        <constraint firstItem="rml-Y5-hds" firstAttribute="centerX" secondItem="YWc-Mf-nLK" secondAttribute="centerX" id="tV7-h8-FP7"/>
+                        <constraint firstAttribute="width" constant="20" id="uPg-TV-vIy"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MG5-Uz-Uu1" userLabel="Title" customClass="UIRegularLabel" customModule="TokyoLife" customModuleProvider="target">
+                    <rect key="frame" x="14.5" y="40" width="35.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isFitSize" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MG5-Uz-Uu1" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="36K-B1-s6A"/>
+                <constraint firstItem="MG5-Uz-Uu1" firstAttribute="top" secondItem="rYr-Bj-IpD" secondAttribute="bottom" constant="8" id="4d1-HJ-Fl6"/>
+                <constraint firstItem="rYr-Bj-IpD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="EqD-av-mIc"/>
+                <constraint firstItem="yMF-0F-dHv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Hcu-bW-2zd"/>
+                <constraint firstItem="yMF-0F-dHv" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Sp6-3x-f8T"/>
+                <constraint firstItem="yMF-0F-dHv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="XrS-AU-UrF"/>
+                <constraint firstItem="YWc-Mf-nLK" firstAttribute="top" secondItem="rYr-Bj-IpD" secondAttribute="top" constant="-6" id="fe9-yt-0je"/>
+                <constraint firstItem="rYr-Bj-IpD" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="mjT-tO-6g1"/>
+                <constraint firstItem="YWc-Mf-nLK" firstAttribute="trailing" secondItem="rYr-Bj-IpD" secondAttribute="trailing" constant="10" id="rKe-Fb-7sw"/>
+                <constraint firstItem="yMF-0F-dHv" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="zvW-8q-MtC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-43" y="-110.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_account" width="48" height="48"/>
+    </resources>
+</document>
