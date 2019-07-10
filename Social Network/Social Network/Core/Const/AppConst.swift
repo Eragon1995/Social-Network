@@ -2,9 +2,9 @@ import UIKit
 
 struct AppConst {
     
-//    static let SCREEN_WIDTH = UIScreen.main.bounds.width
-//    static let ratioWithIp6 = AppConst.SCREEN_WIDTH/375.0
-//
+    static let SCREEN_WIDTH = UIScreen.main.bounds.width
+    static let ratioWithIp6 = AppConst.SCREEN_WIDTH/375.0
+
 //    static let APP_VERSION = "1.0.8"
     
     static let ENABLE_LOG_NETWORK_REQUEST_RESPONSE = true
@@ -19,7 +19,7 @@ struct ApiKeyGoogle {
 }
 
 struct ApiConst {
-    static let BASE_URL = "http://api.vybay.com/api/"
+    static let BASE_URL = "http://159.89.197.62:9999/api/"
     
     static let STATUS_SUCCESS = 1
     static let STATUS_ERROR = 0

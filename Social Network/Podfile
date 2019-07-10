@@ -45,5 +45,7 @@ target 'Social Network' do
   pod 'FBSDKShareKit', '~> 4.38.0'
   pod 'FBSDKLoginKit', '~> 4.38.0'
   pod 'FacebookCore'
+  
+  pod 'RxPager'
 
 end

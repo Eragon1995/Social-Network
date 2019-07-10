@@ -20,17 +20,6 @@ class UserDataManager: NSObject {
     var isShow : Bool = true
     
     var isReview = true
-    var historyLocation : String = ""
-    var plantId : String = ""
-    var airPort_id: Int = 0
-    var arrSelecter : [String] = []
-    var arrTest : [ListItem] = []
-    var arrCarWay : [FormCarModel] = [FormCarModel]()
-    var statusHome : Int = 1
-    var arrCarType : CarTypeModel?
-    var arrBrandCar : GetBrandCarModel?
-    var arrAllProvince : AllProvinceModel?
-    var arrAllAirPort : AllAirPortModel?
     
     override init() {
         defaults = UserDefaults.standard

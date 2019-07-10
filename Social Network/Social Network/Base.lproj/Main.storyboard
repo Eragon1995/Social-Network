@@ -44,12 +44,18 @@
                                                         <state key="normal" title="Đăng nhập">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="touchLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6h-cl-stu"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdp-6Z-6SL">
                                                         <rect key="frame" x="207" y="0.0" width="207" height="46"/>
                                                         <state key="normal" title="Đăng Ký">
                                                             <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="touchRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1mc-O3-Ng8"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -180,6 +186,9 @@
                                                                 <state key="normal" title="Hiện">
                                                                     <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="touchHidePasswordRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pga-T0-ROa"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +238,7 @@
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGy-YR-oiX">
                                                         <rect key="frame" x="16" y="332" width="382" height="40"/>
-                                                        <color key="backgroundColor" red="0.76078431369999999" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="uxl-kE-B9c"/>
                                                         </constraints>
@@ -237,6 +246,9 @@
                                                         <state key="normal" title="Đăng ký">
                                                             <color key="titleColor" red="1" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OBP-hB-KHf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,7 +280,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6n4-oO-SJj">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email / Số điện thoại (*)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vy3-oX-3L4">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vy3-oX-3L4">
                                                                 <rect key="frame" x="16" y="29" width="382" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="7nu-De-7Ng"/>
@@ -324,6 +336,9 @@
                                                                 <state key="normal" title="Hiện">
                                                                     <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="touchHidePasswordLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sm5-k2-OD7"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -350,6 +365,9 @@
                                                         <state key="normal" title="Đăng nhập">
                                                             <color key="titleColor" red="1" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="btnLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f5K-8s-j7d"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S28-jD-MLB">
                                                         <rect key="frame" x="154.5" y="208" width="105" height="30"/>
@@ -418,6 +436,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonLogin" destination="VeC-MY-tnw" id="LEW-Cz-sZ4"/>
+                        <outlet property="buttonRegister" destination="gdp-6Z-6SL" id="3vZ-TN-RXD"/>
+                        <outlet property="tfDateRegister" destination="MKp-rb-n14" id="IMF-Mr-vEU"/>
+                        <outlet property="tfEmailLogin" destination="vy3-oX-3L4" id="gtI-ee-IVl"/>
+                        <outlet property="tfEmailRegister" destination="AXa-cb-3Qz" id="T4g-yj-qUV"/>
+                        <outlet property="tfNameRegister" destination="eWq-MS-n0e" id="1WD-7q-Fwa"/>
+                        <outlet property="tfNumberPhoneRegister" destination="poQ-rv-F6g" id="pb7-HM-KUA"/>
+                        <outlet property="tfPasswordLogin" destination="khr-Lc-II1" id="Gbd-Ak-1ZV"/>
+                        <outlet property="tfPasswordRegister" destination="Nox-Rs-F6F" id="lj2-BY-VDL"/>
+                        <outlet property="viewLogin" destination="M1o-6T-3qX" id="dof-oM-EVB"/>
+                        <outlet property="viewRegister" destination="hKF-C6-vGG" id="QHM-QD-BJK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
