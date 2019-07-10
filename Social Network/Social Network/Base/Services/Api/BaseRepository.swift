@@ -11,6 +11,11 @@ class BaseRepository {
         callApi(url: url, method: "POST", parameters: parameters, onComplete: onComplete)
     }
     
+    func callGetMethod<T>(url: String, parameters: Dictionary<String, Any>, onComplete: @escaping (ApiResponse<T>) -> ()) {
+        callApi(url: url, method: "GET", parameters: parameters, onComplete: onComplete)
+    }
+    
+    
     func callGetMethod<T>(url: String, onComplete: @escaping (ApiResponse<T>) -> ()) {
         return callApi(url: url, method: "GET", parameters: [String: Any](), onComplete: onComplete)
     }
@@ -21,6 +26,10 @@ class BaseRepository {
     
     func callPostMethod<T>(url: String, parameters: Dictionary<String, Any>) -> Observable<ApiResponse<T>> {
         return callApi(url: url, method: "POST", parameters: parameters)
+    }
+    
+    func callGetMethod<T>(url: String, parameters: Dictionary<String, Any>) -> Observable<ApiResponse<T>> {
+        return callApi(url: url, method: "GET", parameters: parameters)
     }
     
     func callApi<T>(url: String, method: String, parameters: Dictionary<String, Any>, onComplete: @escaping (ApiResponse<T>) -> ()) {
@@ -43,7 +52,12 @@ class BaseRepository {
             httpMethod = .post
         }
         
-        Alamofire.request(url, method: httpMethod, parameters: parameters).responseJSON(completionHandler: {response in
+        var header: HTTPHeaders?
+        if let token = UserDataManager.shared.getToken() {
+            header = ["token" : token]
+        }
+        
+        Alamofire.request(url, method: httpMethod, parameters: parameters, headers: header).responseJSON(completionHandler: {response in
             switch response.result {
             case .success(let data):
                 guard let jsonData = JSON(data).dictionary else {
@@ -53,14 +67,19 @@ class BaseRepository {
                     return;
                 }
                 
-                let resultStatus: Int = jsonData["Result"]?.int ?? ApiConst.STATUS_SUCCESS
+                
+                let resultStatus: Int = jsonData["status"]?.int ?? ApiConst.STATUS_SUCCESS
                 if (resultStatus == ApiConst.STATUS_SUCCESS) {
                     let rawData: String = JSON(data).rawString()!
-                    emitter?.onNext(ApiResponse(rawData: rawData))
-                    onComplete?(ApiResponse(rawData: rawData))
+                    
+                    let apiResponse: ApiResponse<T> = ApiResponse(rawData: rawData)
+                    apiResponse.message = jsonData["message"]?.string ?? ""
+                    
+                    emitter?.onNext(apiResponse)
+                    onComplete?(apiResponse)
                 } else {
-                    emitter?.onNext(ApiResponse(errorMessage: jsonData["Message"]?.string ?? ""))
-                    onComplete?(ApiResponse(errorMessage: jsonData["Message"]?.string ?? ""))
+                    emitter?.onNext(ApiResponse(errorMessage: jsonData["message"]?.string ?? ""))
+                    onComplete?(ApiResponse(errorMessage: jsonData["message"]?.string ?? ""))
                 }
                 
                 break
@@ -79,31 +98,31 @@ class BaseRepository {
     
     
     
-//    func callPostMethodWithCallBack<T>(url: String, parameters: Dictionary<String, Any>, onComplete: @escaping (ApiResponse<T>) -> ()) {
-//        Alamofire.request(url, method: .post, parameters: parameters).responseJSON(completionHandler: {response in
-//
-//            switch response.result {
-//            case .success(let data):
-//                //print(type(of: data))
-//                guard let jsonData = JSON(data).dictionary else {
-//                    onComplete(ApiResponse(errorMessage: self.ERROR_NETWORK_MESSAGE))
-//                    return;
-//                }
-//
-//                if let errorMessage = jsonData["_ERROR_MESSAGE_"]?.string {
-//                    onComplete(ApiResponse(errorMessage: errorMessage))
-//                    return;
-//                }
-//
-//                let rawData: String = JSON(data).rawString()!
-//                onComplete(ApiResponse(rawData: rawData))
-//
-//                break
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//                onComplete(ApiResponse(errorMessage: self.ERROR_NETWORK_MESSAGE))
-//            }
-//
-//        });
-//    }
+    //    func callPostMethodWithCallBack<T>(url: String, parameters: Dictionary<String, Any>, onComplete: @escaping (ApiResponse<T>) -> ()) {
+    //        Alamofire.request(url, method: .post, parameters: parameters).responseJSON(completionHandler: {response in
+    //
+    //            switch response.result {
+    //            case .success(let data):
+    //                //print(type(of: data))
+    //                guard let jsonData = JSON(data).dictionary else {
+    //                    onComplete(ApiResponse(errorMessage: self.ERROR_NETWORK_MESSAGE))
+    //                    return;
+    //                }
+    //
+    //                if let errorMessage = jsonData["_ERROR_MESSAGE_"]?.string {
+    //                    onComplete(ApiResponse(errorMessage: errorMessage))
+    //                    return;
+    //                }
+    //
+    //                let rawData: String = JSON(data).rawString()!
+    //                onComplete(ApiResponse(rawData: rawData))
+    //
+    //                break
+    //            case .failure(let error):
+    //                print(error.localizedDescription)
+    //                onComplete(ApiResponse(errorMessage: self.ERROR_NETWORK_MESSAGE))
+    //            }
+    //
+    //        });
+    //    }
 }

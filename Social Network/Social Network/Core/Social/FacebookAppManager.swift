@@ -49,8 +49,12 @@ class FacebookAppManager: NSObject {
     }
     
     func signInFromViewController(viewController: UIViewController) {
+        
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        fbLoginManager.loginBehavior = .web
+        fbLoginManager.logOut()
         fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: viewController) { (result, error) in
+//            dump(result)
             if (result != nil && error == nil){
                 let fbloginresult : FBSDKLoginManagerLoginResult = result!
                 if(fbloginresult.grantedPermissions != nil && fbloginresult.grantedPermissions.contains("email")){
@@ -58,6 +62,7 @@ class FacebookAppManager: NSObject {
                 }
             }else{
                 // Show Error here
+//                dump(error)
             }
         }
     }

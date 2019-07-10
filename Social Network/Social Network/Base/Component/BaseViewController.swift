@@ -1,11 +1,10 @@
 
 
 import UIKit
-import MBProgressHUD
+//import MBProgressHUD
 
-class BaseViewController: UIViewController {
-    var userDataManager = UserDataManager()
-
+class BaseViewController: UIViewController, ViewContainsLoadingViewProtocol, ViewContainsFormatLoadingViewProtocol {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -15,7 +14,7 @@ class BaseViewController: UIViewController {
         // Setup back button
         setupBackButton()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -46,6 +45,37 @@ class BaseViewController: UIViewController {
     }
     
     // UIAlertController Helper ========================================================================================
+    
+    
+    func showCustomAlertTextView(modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.overCurrentContext,title: String? = nil, message: String? = nil, buttonOkOnClick: ((_ star: Int) -> ())?) {
+        let alertController = AlertViewController.getStartViewController()
+        alertController.modalPresentationStyle = modalStyle
+    
+        alertController.buttonOkOnClick = buttonOkOnClick
+        alertController.typeAlertViewController = .textField
+        alertController.titleText = title
+        alertController.messageText = message
+        
+        self.present(alertController, animated: false, completion: nil)
+    }
+  
+    func showCustomAlert(modalStyle: UIModalPresentationStyle = UIModalPresentationStyle.overCurrentContext, title: String? = nil, message: String? = nil, okTitle: String? = nil, cancelTitle: String, buttonOkOnClick:(() -> ())?, buttonCancelOnClick:(() -> ())?) {
+        let controller = AlertConfirmViewController.getStartViewController()
+        controller.modalPresentationStyle = modalStyle
+        
+        controller.titleText = title
+        controller.message = message
+        controller.okTitle = okTitle
+        controller.cancelTitle = cancelTitle
+        controller.buttonOkOnClick = buttonOkOnClick
+        controller.buttonCancelOnClick = buttonCancelOnClick
+    
+        self.present(controller, animated: false, completion: nil)
+        
+    }
+    
+    
+    
     // Show message alert with message only
     func showAlertMessage(message: String) {
         showAlertMessage(title: "", message: message)
@@ -80,6 +110,7 @@ class BaseViewController: UIViewController {
     func showAlertMessage(title: String, message: String, okText: String, callBack: @escaping () -> ()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: okText, style: UIAlertAction.Style.default, handler: { action in
+            alert.dismiss(animated: false, completion: nil)
             callBack()
         }))
         self.present(alert, animated: true, completion: nil)
@@ -118,17 +149,34 @@ class BaseViewController: UIViewController {
     }
     
     // Progress bar ===================================================================================================
+    
+    var formatLoadingView : FormatLoadingView?
+    
+    func showFormatLoadingView(_ show: Bool) {
+        self.showFormatLoadingView(in: self.view, show: show)
+    }
+    
+    func showFormatLoading() {
+        self.showFormatLoadingView(true)
+    }
+    
+    func hideFormatLoading() {
+        self.showFormatLoadingView(false)
+    }
+    // Progress bar ===================================================================================================
+    func showLoadingView(_ show: Bool) {
+        self.showLoadingView(in: self.view, show: show)
+    }
+    
     func showLoading() {
-        DispatchQueue.main.async {
-            let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-            hud.show(animated: true)
-        }
+        self.showLoadingView(true)
     }
+    
     func hideLoading() {
-        DispatchQueue.main.async {
-            MBProgressHUD.hide(for: self.view, animated: true)
-        }
+        self.showLoadingView(false)
     }
+    
+    var loadingView: LoadingView?
     
     // Enable / Disable touch event ===================================================================================================
     func enableTouchEvent() {
@@ -137,6 +185,20 @@ class BaseViewController: UIViewController {
     
     func disableTouchEvent() {
         self.view.isUserInteractionEnabled = false
+    }
+    
+    func showAlert(title: String? = nil, message: String) {
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        self.present(alert, animated: true, completion: nil)
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+//            alert.dismiss(animated: true, completion: nil)
+//        }
+        
+        guard let title = title else {
+            self.showAlertMessage(message: message)
+            return
+        }
+        self.showAlertMessage(title: title, message: message)
     }
     
 }
