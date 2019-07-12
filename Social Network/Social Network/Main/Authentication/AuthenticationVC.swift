@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AccountKit
 
-class AuthenticationVC: UIViewController {
+class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
 
     @IBOutlet weak var buttonRegister: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!
@@ -38,10 +39,27 @@ class AuthenticationVC: UIViewController {
         self.buttonLogin.setTitleColor(UIColor.init(hexStr: "222222"), for: .normal)
     }
     @IBAction func btnRegister(_ sender: Any) {
-        
+        self.showLoading()
+        Repository().register(email: self.tfEmailRegister.text ?? "", password: self.tfPasswordRegister.text ?? "", userName: self.tfNameRegister.text ?? "") { [unowned self] (response) in
+            self.hideLoading()
+            if response.isSuccess() {
+                let data = JsonParserManager.register(jsonString: response.rawData ?? "")
+                print("leu leu \(data?.data.email ?? "") \(data?.data.fullName ?? "") \(data?.data.token ?? "")")
+            } else {
+                self.showAlert(message: response.message)
+            }
+        }
     }
     @IBAction func btnLogin(_ sender: Any) {
-        
+        self.showLoading()
+        Repository().login(email: self.tfEmailLogin.text ?? "", password: self.tfPasswordLogin.text ?? "") { [unowned self] (response) in
+            self.hideLoading()
+            if response.isSuccess() {
+                self.showAlert(message: "Login Thanh cong")
+            } else {
+                self.showAlert(message: response.message)
+            }
+        }
     }
     @IBAction func touchHidePasswordRegister(_ sender: Any) {
         if tfPasswordRegister.isSecureTextEntry == true {

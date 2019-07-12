@@ -13,6 +13,12 @@ class Repository: BaseRepository {
         params["userName"] = userName
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
-    
+    func login(email: String, password: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.LOGIN_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["email"] = email
+        params["password"] = password
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
 
 }

@@ -7,17 +7,7 @@ target 'Social Network' do
 
   # Pods for Social Network
   
-  pod 'MBProgressHUD', '~> 1.1.0'
-  pod 'XLPagerTabStrip', '~> 8.0'
-  pod 'SideMenu'
-  pod 'Cosmos'
-  pod 'PinCodeTextField'
   pod 'Kingfisher'
-
-  
-  #common
-  pod 'MBProgressHUD', '~> 1.1.0'
-  pod 'RealmSwift'
 
   # Alamofire
   pod 'Alamofire', '~> 4.7'
@@ -35,17 +25,12 @@ target 'Social Network' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
 
-  # Pods for Format
-  pod 'SideMenu'
- 
   pod 'IQKeyboardManagerSwift'
-
-  # Facebook
-  pod 'FBSDKCoreKit', '~> 4.38.0'
-  pod 'FBSDKShareKit', '~> 4.38.0'
-  pod 'FBSDKLoginKit', '~> 4.38.0'
-  pod 'FacebookCore'
   
-  pod 'RxPager'
+  #AccountKit
+  pod 'AccountKit'
+  
+  #Side Menu
+  pod 'SideMenu'
 
 end
