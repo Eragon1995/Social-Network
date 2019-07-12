@@ -20,5 +20,9 @@ class Repository: BaseRepository {
         params["password"] = password
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
-
+    func postPublic( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.POST_PUBLIC_URL)"
+        let params = Dictionary<String, Any>.init()
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
 }

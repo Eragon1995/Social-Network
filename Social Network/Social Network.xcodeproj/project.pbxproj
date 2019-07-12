@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		125626290EFBB8A8956C9B6C /* Pods_Social_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0A974658951121B1B20476B /* Pods_Social_Network.framework */; };
+		C804213D22D89003004562C1 /* PostPublicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804213C22D89003004562C1 /* PostPublicModel.swift */; };
+		C804213F22D8916E004562C1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804213E22D8916E004562C1 /* LoginModel.swift */; };
+		C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804214022D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift */; };
+		C804214322D898E1004562C1 /* HomeVCExtention + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804214222D898E1004562C1 /* HomeVCExtention + TableView.swift */; };
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
 		C8383B1D22D710E300E897BE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1C22D710E300E897BE /* HomeVC.swift */; };
 		C8383B2122D7111800E897BE /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1F22D7111800E897BE /* MenuVC.swift */; };
@@ -85,6 +89,10 @@
 /* Begin PBXFileReference section */
 		1B0BEDD6E272EB38F966E203 /* Pods-Social Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Social Network/Pods-Social Network.release.xcconfig"; sourceTree = "<group>"; };
 		67FD01ED1EC2840C900DDD01 /* Pods-Social Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Social Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Social Network/Pods-Social Network.debug.xcconfig"; sourceTree = "<group>"; };
+		C804213C22D89003004562C1 /* PostPublicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPublicModel.swift; sourceTree = "<group>"; };
+		C804213E22D8916E004562C1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		C804214022D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtentionHomeVC + UISideMenu.swift"; sourceTree = "<group>"; };
+		C804214222D898E1004562C1 /* HomeVCExtention + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVCExtention + TableView.swift"; sourceTree = "<group>"; };
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C8383B1C22D710E300E897BE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C8383B1F22D7111800E897BE /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -198,6 +206,8 @@
 			children = (
 				C806CDBF22D5D528002E16F4 /* RegisterModel.swift */,
 				C8383B2922D723EA00E897BE /* MenuModel.swift */,
+				C804213C22D89003004562C1 /* PostPublicModel.swift */,
+				C804213E22D8916E004562C1 /* LoginModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				C8383B1C22D710E300E897BE /* HomeVC.swift */,
+				C804214022D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift */,
+				C804214222D898E1004562C1 /* HomeVCExtention + TableView.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -605,6 +617,7 @@
 			files = (
 				DF14336522D5C22C000BAEF5 /* BaseView.swift in Sources */,
 				DF14337D22D5C22C000BAEF5 /* ImageLoader.swift in Sources */,
+				C804213D22D89003004562C1 /* PostPublicModel.swift in Sources */,
 				DF14335322D5C22C000BAEF5 /* UIView+Extension.swift in Sources */,
 				DF14335522D5C22C000BAEF5 /* UIViewController+Extension.swift in Sources */,
 				DF14335B22D5C22C000BAEF5 /* Connectivity.swift in Sources */,
@@ -615,6 +628,7 @@
 				DF14335422D5C22C000BAEF5 /* UIImage+Extension.swift in Sources */,
 				DF14337F22D5C22C000BAEF5 /* GifImage.swift in Sources */,
 				DF14337922D5C22C000BAEF5 /* BaseResponse.swift in Sources */,
+				C804213F22D8916E004562C1 /* LoginModel.swift in Sources */,
 				DF14338722D5C22C000BAEF5 /* JsonParserManager.swift in Sources */,
 				DF14337122D5C22C000BAEF5 /* AlertConfirmViewController.swift in Sources */,
 				DF14334E22D5C22C000BAEF5 /* UIFont+Extension.swift in Sources */,
@@ -631,6 +645,7 @@
 				DF14338822D5C22C000BAEF5 /* UrlConst.swift in Sources */,
 				DF14334C22D5C22C000BAEF5 /* UIImageView+Extension.swift in Sources */,
 				DF14335A22D5C22C000BAEF5 /* UITapgestureRecognizer.swift in Sources */,
+				C804214322D898E1004562C1 /* HomeVCExtention + TableView.swift in Sources */,
 				DF14337322D5C22C000BAEF5 /* FormatLoadingView.swift in Sources */,
 				DF14338B22D5C22C000BAEF5 /* UserDataManager.swift in Sources */,
 				DF14336322D5C22C000BAEF5 /* UIRegularLabel.swift in Sources */,
@@ -654,6 +669,7 @@
 				DF14335122D5C22C000BAEF5 /* Collection+Extension.swift in Sources */,
 				DF14335D22D5C22C000BAEF5 /* LocationManager.swift in Sources */,
 				C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */,
+				C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */,
 				DF14336622D5C22C000BAEF5 /* JSONParser.swift in Sources */,
 				DF14336C22D5C22C000BAEF5 /* SimplePopoverViewController.swift in Sources */,
 				DF14337022D5C22C000BAEF5 /* AlertViewController.swift in Sources */,

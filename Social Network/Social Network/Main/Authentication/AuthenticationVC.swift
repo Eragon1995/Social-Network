@@ -55,7 +55,11 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         Repository().login(email: self.tfEmailLogin.text ?? "", password: self.tfPasswordLogin.text ?? "") { [unowned self] (response) in
             self.hideLoading()
             if response.isSuccess() {
-                self.showAlert(message: "Login Thanh cong")
+                let storyBoad = UIStoryboard(name: "Main", bundle: nil)
+                if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
+                    tabbar.selectedIndex = 0
+                    self.navigationController?.pushViewController(tabbar, animated: true)
+                }
             } else {
                 self.showAlert(message: response.message)
             }

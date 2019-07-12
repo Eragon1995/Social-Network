@@ -9,7 +9,7 @@
 import UIKit
 
 class MenuVC: BaseViewController  {
-
+    
     var arrMenuItem = [MenuModel]()
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblName: UILabel!
