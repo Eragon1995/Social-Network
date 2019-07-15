@@ -45,6 +45,17 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
             if response.isSuccess() {
                 let data = JsonParserManager.register(jsonString: response.rawData ?? "")
                 print("leu leu \(data?.data.email ?? "") \(data?.data.fullName ?? "") \(data?.data.token ?? "")")
+                let token = data?.data.token ?? ""
+                let email = data?.data.email ?? ""
+                let password = self.tfPasswordRegister.text ?? ""
+                let storyBoad = UIStoryboard(name: "Main", bundle: nil)
+                if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
+                    UserDataManager.shared.setToken(token: token)
+                    UserDataManager.shared.setEmail(email: email)
+                    UserDataManager.shared.setPass(pass: password)
+                    tabbar.selectedIndex = 0
+                    self.navigationController?.pushViewController(tabbar, animated: true)
+                }
             } else {
                 self.showAlert(message: response.message)
             }
@@ -55,8 +66,15 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         Repository().login(email: self.tfEmailLogin.text ?? "", password: self.tfPasswordLogin.text ?? "") { [unowned self] (response) in
             self.hideLoading()
             if response.isSuccess() {
+                let data = JsonParserManager.login(jsonString: response.rawData ?? "")
+                let token = data?.data?.token ?? ""
+                let email = data?.data?.email ?? ""
+                let password = self.tfPasswordLogin.text ?? ""
                 let storyBoad = UIStoryboard(name: "Main", bundle: nil)
                 if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
+                    UserDataManager.shared.setToken(token: token)
+                    UserDataManager.shared.setEmail(email: email)
+                    UserDataManager.shared.setPass(pass: password)
                     tabbar.selectedIndex = 0
                     self.navigationController?.pushViewController(tabbar, animated: true)
                 }

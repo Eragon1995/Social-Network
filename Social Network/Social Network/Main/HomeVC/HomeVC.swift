@@ -11,12 +11,14 @@ import SideMenu
 
 class HomeVC: BaseViewController {
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerViewTop: NSLayoutConstraint!
     var endScroll = false
     var topHeaderView: CGFloat = 0
     var locationY: CGFloat = 0
     var listPostPublic: PostPublicModel?
+    var listImageUrl: [String] = []
     
     @IBAction func touchMenu(_ sender: Any) {
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
@@ -26,7 +28,9 @@ class HomeVC: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.listImageUrl = UserDataManager.shared.listImage
         self.initSideMenu()
+        self.getPostPublic()
     }
     
     func getPostPublic() {
@@ -39,6 +43,7 @@ class HomeVC: BaseViewController {
             } else {
                 self.showAlert(message: response.message)
             }
+            self.tableView.reloadData()
         }
     }
 }

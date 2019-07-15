@@ -25,4 +25,9 @@ class Repository: BaseRepository {
         let params = Dictionary<String, Any>.init()
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func defaultImage( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.RANDOM_IMAGE_URL)"
+        let params = Dictionary<String, Any>.init()
+        return self.callGetMethod(url: url, parameters: params, onComplete: callBack)
+    }
 }

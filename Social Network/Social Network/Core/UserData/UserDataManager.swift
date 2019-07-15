@@ -2,7 +2,7 @@
 import UIKit
 
 class UserDataManager: NSObject {
-    static let KEY_USER_ID = "KEY_USER_ID"
+    static let KEY_EMAIL = "KEY_USER_ID"
     static let KEY_DEVICE_TOKEN = "KEY_DEVICE_TOKEN"
     static let KEY_FULL_NAME = "KEY_FULL_NAME"
     static let KEY_LINK_AVATAR = "KEY_LINK_AVATAR"
@@ -20,6 +20,7 @@ class UserDataManager: NSObject {
     var isShow : Bool = true
     
     var isReview = true
+    var listImage: [String] = []
     
     override init() {
         defaults = UserDefaults.standard
@@ -84,12 +85,12 @@ class UserDataManager: NSObject {
     }
     
     // User Id ==============================================
-    func setUserId(userId: String) {
-        defaults?.set(userId, forKey: UserDataManager.KEY_USER_ID)
+    func setEmail(email: String) {
+        defaults?.set(email, forKey: UserDataManager.KEY_EMAIL)
     }
     
-    func getUserId() -> String? {
-        return defaults?.string(forKey: UserDataManager.KEY_USER_ID)
+    func getEmail() -> String? {
+        return defaults?.string(forKey: UserDataManager.KEY_EMAIL)
     }
     
     // Device Token ==============================================
@@ -120,7 +121,7 @@ class UserDataManager: NSObject {
     }
     
     func clearUserData() -> Void {
-        defaults?.removeObject(forKey: UserDataManager.KEY_USER_ID)
+        defaults?.removeObject(forKey: UserDataManager.KEY_EMAIL)
         defaults?.removeObject(forKey: UserDataManager.KEY_FULL_NAME)
         defaults?.removeObject(forKey: UserDataManager.KEY_LINK_AVATAR)
         defaults?.removeObject(forKey: UserDataManager.KEY_LOGIN_TYPE)

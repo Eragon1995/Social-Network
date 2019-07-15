@@ -18,7 +18,7 @@
         <!--AuthenticationVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AuthenticationVC" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticationVC" id="BYZ-38-t0r" customClass="AuthenticationVC" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -529,6 +529,7 @@
                     <connections>
                         <outlet property="headerView" destination="Luy-DB-Wfn" id="RDL-r5-bh8"/>
                         <outlet property="headerViewTop" destination="Mfg-6K-pKz" id="SJe-ig-y93"/>
+                        <outlet property="tableView" destination="hVs-mE-96B" id="La6-Ex-cDf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wDB-cV-kIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -563,12 +564,28 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bo7-1W-IaZ"/>
+                        <segue destination="eOn-kn-hYE" kind="relationship" relationship="rootViewController" id="w0o-9F-F64"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HrM-TO-3Yn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1087" y="-89"/>
+        </scene>
+        <!--LaunchVC-->
+        <scene sceneID="j84-Fs-GtE">
+            <objects>
+                <viewController storyboardIdentifier="LaunchVC" id="eOn-kn-hYE" customClass="LaunchVC" customModule="Social_Network" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NLv-96-5Ao">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.66666668650000005" green="0.32226743940000002" blue="0.43461429969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="9cm-pu-yeH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iIF-O3-Obo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlw-ON-cK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1088" y="629"/>
         </scene>
         <!--Home-->
         <scene sceneID="VWa-hL-Hud">
