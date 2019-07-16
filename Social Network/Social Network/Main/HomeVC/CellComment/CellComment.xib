@@ -133,6 +133,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageHeigt" destination="elu-5Y-0xd" id="eJw-qn-61U"/>
                 <outlet property="imgAvatar" destination="1VZ-Fm-dI9" id="XYk-mU-BVm"/>
                 <outlet property="imgMain" destination="y2I-g3-580" id="vOh-SS-j54"/>
                 <outlet property="lblConten" destination="QVP-XL-82f" id="Iaw-vC-mZJ"/>
