@@ -15,19 +15,36 @@ class MenuVC: BaseViewController  {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgMain: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.setupDataMenu()
+        self.initProfile()
     }
     
     func setupDataMenu() {
         self.arrMenuItem.removeAll()
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Item1", id: MenuModel.MENU_1))
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Item2", id: MenuModel.MENU_2))
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Đăng xuất", id: MenuModel.MENU_3))
+        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Chỉnh sửa thông tin", id: MenuModel.MENU_1))
+        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Bài viết của bạn", id: MenuModel.MENU_2))
+        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Danh sách bạn  ", id: MenuModel.MENU_3))
+        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Đăng xuất", id: MenuModel.MENU_4))
         self.tableView.reloadData()
+    }
+    func initProfile() {
+        let fullName = UserDataManager.shared.getFullName()
+        let email = UserDataManager.shared.getBirthDay()
+        
+        self.lblName.text = fullName
+        self.lblEmail.text = email
+        if let avtUrl = UserDataManager.shared.getLinkAvatar(), avtUrl != "" {
+            if let url = URL(string: avtUrl) {
+                self.imgMain.kf.setImage(with: url)
+            }
+        } else {
+            self.imgMain.image = UIImage.init(named: "defaultAvt")
+        }
     }
 }
 

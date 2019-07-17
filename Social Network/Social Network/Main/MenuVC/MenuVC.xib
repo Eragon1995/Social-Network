@@ -58,14 +58,24 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5BX-M5-z0X">
+                            <rect key="frame" x="0.0" y="129" width="414" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="8Y2-1D-kGS"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="64e-N2-JDm"/>
                         <constraint firstItem="jVa-6b-URO" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="16" id="9zM-IR-CfX"/>
+                        <constraint firstItem="5BX-M5-z0X" firstAttribute="leading" secondItem="OpL-RW-dEx" secondAttribute="leading" id="B5y-Un-46P"/>
                         <constraint firstItem="JNh-nS-mrh" firstAttribute="top" secondItem="afF-d8-4Kq" secondAttribute="bottom" constant="8" id="EHu-ce-Mrd"/>
                         <constraint firstItem="JNh-nS-mrh" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="16" id="FdP-mg-Sal"/>
                         <constraint firstAttribute="trailing" secondItem="jVa-6b-URO" secondAttribute="trailing" constant="16" id="GI0-1h-h37"/>
+                        <constraint firstAttribute="bottom" secondItem="5BX-M5-z0X" secondAttribute="bottom" id="Hie-fr-QoQ"/>
+                        <constraint firstAttribute="trailing" secondItem="5BX-M5-z0X" secondAttribute="trailing" id="I6o-gR-nA2"/>
                         <constraint firstItem="lj1-dl-0Q2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OpL-RW-dEx" secondAttribute="top" constant="8" id="NAF-S0-exj"/>
                         <constraint firstItem="lj1-dl-0Q2" firstAttribute="leading" secondItem="OpL-RW-dEx" secondAttribute="leading" constant="16" id="UfO-DC-tF7"/>
                         <constraint firstAttribute="trailing" secondItem="JNh-nS-mrh" secondAttribute="trailing" constant="16" id="WE8-cQ-aor"/>

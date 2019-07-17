@@ -11,7 +11,7 @@ class UserDataManager: NSObject {
     static let KEY_PASS = "KEY_PASS"
     static let KEY_FACEBOOK = "KEY_FACEBOOK"
     static let KEY_LOGIN_TYPE = "KEY_LOGIN_TYPE"
-    static let KEY_HISTORY_LOCATION = "KEY_HISTORY_LOCATION"
+    static let KEY_BIRTHDAY = "KEY_BIRTHDAY"
 
     var defaults: UserDefaults?;
     
@@ -35,18 +35,17 @@ class UserDataManager: NSObject {
         return defaults?.string(forKey: UserDataManager.KEY_TOKEN)
     }
     
+    //setbirthday
+    func setBirthDay(day: String) {
+        defaults?.set(day, forKey: UserDataManager.KEY_BIRTHDAY)
+    }
+    
+    func getBirthDay() -> String? {
+        return defaults?.string(forKey: UserDataManager.KEY_BIRTHDAY)
+    }
+    
     func clearToken() {
         defaults?.set(nil, forKey: UserDataManager.KEY_TOKEN)
-    }
-    
-    // history location
-    
-    func setHistoryLocation(array: [String]) {
-        defaults?.set(array, forKey: UserDataManager.KEY_HISTORY_LOCATION)
-    }
-    
-    func getHistoryLocation() -> Array<String> {
-        return defaults?.stringArray(forKey: UserDataManager.KEY_HISTORY_LOCATION) ?? [String]()
     }
     // phone
     func setPhone(phone: String) {
@@ -74,15 +73,7 @@ class UserDataManager: NSObject {
     func getFaceId() -> String? {
         return defaults?.string(forKey: UserDataManager.KEY_FACEBOOK)
     }
-    
-    //loginType
-    func setLoginType(loginType: Int) {
-        defaults?.set(loginType, forKey: UserDataManager.KEY_LOGIN_TYPE)
-    }
-    
-    func getLoginType() -> String? {
-        return defaults?.string(forKey: UserDataManager.KEY_LOGIN_TYPE)
-    }
+
     
     // User Id ==============================================
     func setEmail(email: String) {

@@ -36,6 +36,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             if let data = self.listPostPublic?.data?.list?[section] {
                 cell.configCell(model: data, section: section)
             }
+//            self.reloadHeader(secsion: section)
             return cell
         } else {
             let cellTable = tableView.dequeueReusableCell(withIdentifier: "CellComment")
@@ -53,5 +54,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         }
+    }
+    func reloadHeader(secsion: Int) {
+        let indexSet: IndexSet = [secsion]
+        self.tableView.reloadSections(indexSet, with: .automatic)
     }
 }

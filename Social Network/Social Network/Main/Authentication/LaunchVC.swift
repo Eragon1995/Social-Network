@@ -49,6 +49,12 @@ class LaunchVC: BaseViewController {
                 let data = JsonParserManager.login(jsonString: response.rawData ?? "")
                 let token = data?.data?.token ?? ""
                 let email = data?.data?.email ?? ""
+                let fullName = data?.data?.fullName ?? ""
+                UserDataManager.shared.setFullName(fullName: fullName)
+                let avtUrl = data?.data?.avatarURL ?? ""
+                UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
+                let birthDay = data?.data?.birthday ?? ""
+                UserDataManager.shared.setBirthDay(day: birthDay)
                 let storyBoad = UIStoryboard(name: "Main", bundle: nil)
                 if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
                     UserDataManager.shared.setToken(token: token)

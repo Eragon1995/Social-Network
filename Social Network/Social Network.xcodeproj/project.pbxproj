@@ -19,6 +19,8 @@
 		C8229E4622DC21BF0045A1C2 /* CellMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4422DC21BF0045A1C2 /* CellMain.swift */; };
 		C8229E4722DC21BF0045A1C2 /* CellMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8229E4522DC21BF0045A1C2 /* CellMain.xib */; };
 		C8229E4922DC586C0045A1C2 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4822DC586C0045A1C2 /* RandomImage.swift */; };
+		C82C0C9322DECEF8001C2D8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */; };
+		C82C0C9622DEFA05001C2D8D /* PostNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C0C9522DEFA05001C2D8D /* PostNewVC.swift */; };
 		C8383B1D22D710E300E897BE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1C22D710E300E897BE /* HomeVC.swift */; };
 		C8383B2122D7111800E897BE /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1F22D7111800E897BE /* MenuVC.swift */; };
 		C8383B2222D7111800E897BE /* MenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8383B2022D7111800E897BE /* MenuVC.xib */; };
@@ -106,6 +108,8 @@
 		C8229E4422DC21BF0045A1C2 /* CellMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMain.swift; sourceTree = "<group>"; };
 		C8229E4522DC21BF0045A1C2 /* CellMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellMain.xib; sourceTree = "<group>"; };
 		C8229E4822DC586C0045A1C2 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
+		C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C82C0C9522DEFA05001C2D8D /* PostNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewVC.swift; sourceTree = "<group>"; };
 		C8383B1C22D710E300E897BE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C8383B1F22D7111800E897BE /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		C8383B2022D7111800E897BE /* MenuVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuVC.xib; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 		C806CDBD22D5D4FD002E16F4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C82C0C9422DEF9A1001C2D8D /* PostNew */,
 				C806CDBE22D5D517002E16F4 /* Model */,
 				DF6749A322C08CFE00735AC9 /* Authentication */,
 				C8383B1B22D710BE00E897BE /* HomeVC */,
@@ -241,6 +246,14 @@
 				C8229E4522DC21BF0045A1C2 /* CellMain.xib */,
 			);
 			path = CellMain;
+			sourceTree = "<group>";
+		};
+		C82C0C9422DEF9A1001C2D8D /* PostNew */ = {
+			isa = PBXGroup;
+			children = (
+				C82C0C9522DEFA05001C2D8D /* PostNewVC.swift */,
+			);
+			path = PostNew;
 			sourceTree = "<group>";
 		};
 		C8383B1B22D710BE00E897BE /* HomeVC */ = {
@@ -489,6 +502,7 @@
 				DF6747A422C07FB200735AC9 /* Assets.xcassets */,
 				DF6747A622C07FB200735AC9 /* LaunchScreen.storyboard */,
 				DF6747A922C07FB200735AC9 /* Info.plist */,
+				C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */,
 			);
 			path = "Social Network";
 			sourceTree = "<group>";
@@ -574,6 +588,7 @@
 			files = (
 				C8229E4722DC21BF0045A1C2 /* CellMain.xib in Resources */,
 				DF14338622D5C22C000BAEF5 /* LoadMoreFooterView.xib in Resources */,
+				C82C0C9322DECEF8001C2D8D /* GoogleService-Info.plist in Resources */,
 				DF6747A822C07FB200735AC9 /* LaunchScreen.storyboard in Resources */,
 				DF14337222D5C22C000BAEF5 /* LoadingView.xib in Resources */,
 				DF14336F22D5C22C000BAEF5 /* AlertConfirmViewController.xib in Resources */,
@@ -662,6 +677,7 @@
 				DF14335922D5C22C000BAEF5 /* Range+Extension.swift in Sources */,
 				DF14334F22D5C22C000BAEF5 /* UIColor+Extension.swift in Sources */,
 				DF14335422D5C22C000BAEF5 /* UIImage+Extension.swift in Sources */,
+				C82C0C9622DEFA05001C2D8D /* PostNewVC.swift in Sources */,
 				DF14337F22D5C22C000BAEF5 /* GifImage.swift in Sources */,
 				DF14337922D5C22C000BAEF5 /* BaseResponse.swift in Sources */,
 				C804213F22D8916E004562C1 /* LoginModel.swift in Sources */,
@@ -865,16 +881,18 @@
 			baseConfigurationReference = 67FD01ED1EC2840C900DDD01 /* Pods-Social Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JQ3EEXZ7U4;
+				DEVELOPMENT_TEAM = U8V4UCT8N5;
 				INFOPLIST_FILE = "Social Network/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Husky.Social-Network";
+				PRODUCT_BUNDLE_IDENTIFIER = "Husky.Social-Network.chat1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -885,16 +903,18 @@
 			baseConfigurationReference = 1B0BEDD6E272EB38F966E203 /* Pods-Social Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JQ3EEXZ7U4;
+				DEVELOPMENT_TEAM = U8V4UCT8N5;
 				INFOPLIST_FILE = "Social Network/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Husky.Social-Network";
+				PRODUCT_BUNDLE_IDENTIFIER = "Husky.Social-Network.chat1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
