@@ -14,6 +14,11 @@
 		C804213F22D8916E004562C1 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804213E22D8916E004562C1 /* LoginModel.swift */; };
 		C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804214022D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift */; };
 		C804214322D898E1004562C1 /* HomeVCExtention + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C804214222D898E1004562C1 /* HomeVCExtention + TableView.swift */; };
+		C8047F1C22E05AB500FC5799 /* ListFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F1A22E05AB500FC5799 /* ListFriendVC.swift */; };
+		C8047F1D22E05AB500FC5799 /* ListFriendVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8047F1B22E05AB500FC5799 /* ListFriendVC.xib */; };
+		C8047F1F22E0615F00FC5799 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F1E22E0615F00FC5799 /* UserModel.swift */; };
+		C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */; };
+		C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */; };
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
 		C8229E4222DC18760045A1C2 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4122DC18760045A1C2 /* LaunchVC.swift */; };
 		C8229E4622DC21BF0045A1C2 /* CellMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4422DC21BF0045A1C2 /* CellMain.swift */; };
@@ -103,6 +108,11 @@
 		C804213E22D8916E004562C1 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C804214022D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtentionHomeVC + UISideMenu.swift"; sourceTree = "<group>"; };
 		C804214222D898E1004562C1 /* HomeVCExtention + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVCExtention + TableView.swift"; sourceTree = "<group>"; };
+		C8047F1A22E05AB500FC5799 /* ListFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendVC.swift; sourceTree = "<group>"; };
+		C8047F1B22E05AB500FC5799 /* ListFriendVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListFriendVC.xib; sourceTree = "<group>"; };
+		C8047F1E22E0615F00FC5799 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryVC.swift; sourceTree = "<group>"; };
+		C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryVC.xib; sourceTree = "<group>"; };
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C8229E4122DC18760045A1C2 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		C8229E4422DC21BF0045A1C2 /* CellMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMain.swift; sourceTree = "<group>"; };
@@ -215,6 +225,31 @@
 			path = CellComment;
 			sourceTree = "<group>";
 		};
+		C8047F1822E05A2200FC5799 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		C8047F1922E05A3900FC5799 /* ListFriend */ = {
+			isa = PBXGroup;
+			children = (
+				C8047F1A22E05AB500FC5799 /* ListFriendVC.swift */,
+				C8047F1B22E05AB500FC5799 /* ListFriendVC.xib */,
+			);
+			path = ListFriend;
+			sourceTree = "<group>";
+		};
+		C8047F2022E06B9D00FC5799 /* ChatHistory */ = {
+			isa = PBXGroup;
+			children = (
+				C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */,
+				C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */,
+			);
+			path = ChatHistory;
+			sourceTree = "<group>";
+		};
 		C806CDBD22D5D4FD002E16F4 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +270,7 @@
 				C804213C22D89003004562C1 /* PostPublicModel.swift */,
 				C804213E22D8916E004562C1 /* LoginModel.swift */,
 				C8229E4822DC586C0045A1C2 /* RandomImage.swift */,
+				C8047F1E22E0615F00FC5799 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +307,9 @@
 		C8383B1E22D710FA00E897BE /* MenuVC */ = {
 			isa = PBXGroup;
 			children = (
+				C8047F2022E06B9D00FC5799 /* ChatHistory */,
+				C8047F1922E05A3900FC5799 /* ListFriend */,
+				C8047F1822E05A2200FC5799 /* Profile */,
 				C8383B2322D7124400E897BE /* MenuCell */,
 				C8383B1F22D7111800E897BE /* MenuVC.swift */,
 				C8383B2022D7111800E897BE /* MenuVC.xib */,
@@ -600,7 +639,9 @@
 				C8383B2222D7111800E897BE /* MenuVC.xib in Resources */,
 				DF6747A322C07FB100735AC9 /* Main.storyboard in Resources */,
 				DF14336A22D5C22C000BAEF5 /* SimplePopoverCell.xib in Resources */,
+				C8047F1D22E05AB500FC5799 /* ListFriendVC.xib in Resources */,
 				DF14336E22D5C22C000BAEF5 /* AlertViewController.xib in Resources */,
+				C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF14336522D5C22C000BAEF5 /* BaseView.swift in Sources */,
+				C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */,
 				DF14337D22D5C22C000BAEF5 /* ImageLoader.swift in Sources */,
 				C804213D22D89003004562C1 /* PostPublicModel.swift in Sources */,
 				DF14335322D5C22C000BAEF5 /* UIView+Extension.swift in Sources */,
@@ -684,6 +726,7 @@
 				DF14338722D5C22C000BAEF5 /* JsonParserManager.swift in Sources */,
 				DF14337122D5C22C000BAEF5 /* AlertConfirmViewController.swift in Sources */,
 				DF14334E22D5C22C000BAEF5 /* UIFont+Extension.swift in Sources */,
+				C8047F1F22E0615F00FC5799 /* UserModel.swift in Sources */,
 				DF14337522D5C22C000BAEF5 /* LoadingView.swift in Sources */,
 				DF14335222D5C22C000BAEF5 /* UIButton+Extension.swift in Sources */,
 				DF14338022D5C22C000BAEF5 /* JsonUtility.swift in Sources */,
@@ -720,6 +763,7 @@
 				DF14337B22D5C22C000BAEF5 /* ApiResponse.swift in Sources */,
 				C804177F22DC7543001A9BB5 /* CellComment.swift in Sources */,
 				DF14336822D5C22C000BAEF5 /* ViewHasToolBar.swift in Sources */,
+				C8047F1C22E05AB500FC5799 /* ListFriendVC.swift in Sources */,
 				DF14338922D5C22C000BAEF5 /* AppConst.swift in Sources */,
 				DF14335122D5C22C000BAEF5 /* Collection+Extension.swift in Sources */,
 				DF14335D22D5C22C000BAEF5 /* LocationManager.swift in Sources */,

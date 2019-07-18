@@ -26,10 +26,11 @@ class MenuVC: BaseViewController  {
     
     func setupDataMenu() {
         self.arrMenuItem.removeAll()
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Chỉnh sửa thông tin", id: MenuModel.MENU_1))
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Bài viết của bạn", id: MenuModel.MENU_2))
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Danh sách bạn  ", id: MenuModel.MENU_3))
-        self.arrMenuItem.append(MenuModel(imageResource: "", menuName: "Đăng xuất", id: MenuModel.MENU_4))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_profile", menuName: "Chỉnh sửa thông tin", id: MenuModel.MENU_1))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_post", menuName: "Bài viết của bạn", id: MenuModel.MENU_2))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_listFriend", menuName: "Danh sách bạn  ", id: MenuModel.MENU_3))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_logout", menuName: "Tin nhắn", id: MenuModel.MENU_4))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_logout", menuName: "Đăng xuất", id: MenuModel.MENU_5))
         self.tableView.reloadData()
     }
     func initProfile() {
@@ -76,8 +77,16 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
             print("Selected \(indexPath.row)")
         case MenuModel.MENU_3:
             print("Selected \(indexPath.row)")
+        case MenuModel.MENU_4:
+            print("Go to ChatVC")
+        case MenuModel.MENU_5:
+            UserDataManager.shared.clearUserData()
+            let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            let vc = mainSB.instantiateViewController(withIdentifier: "AuthenticationVC") as! AuthenticationVC
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
+        
     }
 }

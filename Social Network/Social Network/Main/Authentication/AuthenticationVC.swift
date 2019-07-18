@@ -8,6 +8,10 @@
 
 import UIKit
 import AccountKit
+import Firebase
+
+let storage = Storage.storage()
+let storageRef = storage.reference(forURL: "gs://social-network-312be.appspot.com/")
 
 class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
 
@@ -22,6 +26,7 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
     @IBOutlet weak var tfEmailLogin: UITextField!
     @IBOutlet weak var viewRegister: UIView!
     @IBOutlet weak var viewLogin: UIView!
+    private var datePicker: UIDatePicker?
     @IBAction func touchLogin(_ sender: Any) {
         self.viewRegister.isHidden = true
         self.viewLogin.isHidden = false
@@ -43,6 +48,7 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         Repository().register(email: self.tfEmailRegister.text ?? "", password: self.tfPasswordRegister.text ?? "", userName: self.tfNameRegister.text ?? "") { [unowned self] (response) in
             self.hideLoading()
             if response.isSuccess() {
+                self.registerFireBaseAC()
                 let data = JsonParserManager.register(jsonString: response.rawData ?? "")
                 print("leu leu \(data?.data.email ?? "") \(data?.data.fullName ?? "") \(data?.data.token ?? "")")
                 let token = data?.data.token ?? ""
@@ -68,6 +74,7 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         Repository().login(email: self.tfEmailLogin.text ?? "", password: self.tfPasswordLogin.text ?? "") { [unowned self] (response) in
             self.hideLoading()
             if response.isSuccess() {
+                self.loginFireBaseAC()
                 let data = JsonParserManager.login(jsonString: response.rawData ?? "")
                 let token = data?.data?.token ?? ""
                 let email = data?.data?.email ?? ""
@@ -110,8 +117,46 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         // Do any additional setup after loading the view.
         self.tfPasswordLogin.isSecureTextEntry = true
         self.tfPasswordRegister.isSecureTextEntry = true
+        self.setupDatePicker()
     }
 
-
+    func registerFireBaseAC() {
+        Auth.auth().createUser(withEmail: tfEmailRegister.text ?? "", password: tfPasswordRegister.text ?? "") { authResult, error in
+            if error == nil {
+                print("Đăng ký thành công")
+                Auth.auth().signIn(withEmail: self.tfEmailRegister.text ?? "", password: self.tfPasswordRegister.text ?? "") { [weak self] user, error in
+                    if error == nil {
+                        print("Đăng nhập thành công")
+                    } else {
+                        self?.showAlert(message: "Login Firebase Fail")
+                    }
+                }
+            } else {
+                self.showAlert(message: "Register Firebase Fail")
+            }
+        }
+    }
+    func loginFireBaseAC() {
+        Auth.auth().signIn(withEmail: self.tfEmailLogin.text ?? "", password: self.tfPasswordLogin.text ?? "") { [weak self] user, error in
+            if error == nil {
+                print("Đăng nhập thành công")
+            } else {
+                self?.showAlert(message: "Login Firebase Fail")
+            }
+        }
+    }
+    func setupDatePicker() {
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        tfDateRegister.inputView = datePicker
+        let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(AuthenticationVC.dissmissPicker))
+        tfDateRegister.inputAccessoryView = toolBar
+    }
+    @objc func dissmissPicker() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        tfDateRegister.text = dateFormatter.string(from: (datePicker?.date)!)
+        view.endEditing(true)
+    }
 }
 

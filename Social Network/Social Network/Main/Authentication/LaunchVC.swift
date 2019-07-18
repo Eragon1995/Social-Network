@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class LaunchVC: BaseViewController {
 
+    let email = UserDataManager.shared.getEmail() ?? ""
+    let pass = UserDataManager.shared.getPass() ?? ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,11 +45,10 @@ class LaunchVC: BaseViewController {
     }
     func login() {
         self.showLoading()
-        let email = UserDataManager.shared.getEmail() ?? ""
-        let pass = UserDataManager.shared.getPass() ?? ""
         Repository().login(email: email, password: pass) { (response) in
             self.hideLoading()
             if response.isSuccess() {
+                self.loginFireBaseAC()
                 let data = JsonParserManager.login(jsonString: response.rawData ?? "")
                 let token = data?.data?.token ?? ""
                 let email = data?.data?.email ?? ""
@@ -59,12 +62,21 @@ class LaunchVC: BaseViewController {
                 if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
                     UserDataManager.shared.setToken(token: token)
                     UserDataManager.shared.setEmail(email: email)
-                    UserDataManager.shared.setPass(pass: pass)
+                    UserDataManager.shared.setPass(pass: self.pass)
                     tabbar.selectedIndex = 0
                     self.navigationController?.pushViewController(tabbar, animated: true)
                 }
             } else {
                 self.showAlert(message: response.message)
+            }
+        }
+    }
+    func loginFireBaseAC() {
+        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] user, error in
+            if error == nil {
+                print("Đăng nhập thành công")
+            } else {
+                self?.showAlert(message: "Login Firebase Fail")
             }
         }
     }

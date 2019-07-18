@@ -12,6 +12,7 @@ import Kingfisher
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        print("LEU LEU \(self.listPostPublic?.data?.list?.count ?? 0)")
         return self.listPostPublic?.data?.list?.count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,7 +37,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             if let data = self.listPostPublic?.data?.list?[section] {
                 cell.configCell(model: data, section: section)
             }
-//            self.reloadHeader(secsion: section)
             return cell
         } else {
             let cellTable = tableView.dequeueReusableCell(withIdentifier: "CellComment")

@@ -23,10 +23,10 @@ target 'Social Network' do
 
   # Firebase
   pod 'Firebase/Core'
-  pod 'Firebase/Messaging'
-  pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Storage'
 
   pod 'IQKeyboardManagerSwift'
   

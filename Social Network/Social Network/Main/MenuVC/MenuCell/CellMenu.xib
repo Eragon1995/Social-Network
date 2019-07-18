@@ -22,15 +22,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-2i-bBa">
                         <rect key="frame" x="0.0" y="0.0" width="319" height="60.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tn-Ha-22A">
-                                <rect key="frame" x="16" y="12.5" width="36" height="36"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5tn-Ha-22A">
+                                <rect key="frame" x="16" y="14.5" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5tn-Ha-22A" secondAttribute="height" multiplier="1:1" id="5e5-ey-1OT"/>
-                                    <constraint firstAttribute="width" constant="36" id="BtL-zV-0mT"/>
+                                    <constraint firstAttribute="width" constant="32" id="BtL-zV-0mT"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-dG-6Kv">
-                                <rect key="frame" x="60" y="20" width="243" height="20.5"/>
+                                <rect key="frame" x="56" y="20" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,15 +45,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="NsK-dG-6Kv" firstAttribute="leading" secondItem="5tn-Ha-22A" secondAttribute="trailing" constant="8" id="3r8-HB-OaN"/>
                             <constraint firstItem="NsK-dG-6Kv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SB2-2i-bBa" secondAttribute="top" constant="8" id="JGZ-mj-AUo"/>
                             <constraint firstItem="NsK-dG-6Kv" firstAttribute="centerY" secondItem="5tn-Ha-22A" secondAttribute="centerY" id="KSK-y7-jNF"/>
                             <constraint firstAttribute="trailing" secondItem="SPP-vE-C8Z" secondAttribute="trailing" id="OIX-A2-aic"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5tn-Ha-22A" secondAttribute="bottom" constant="8" id="ZL4-NM-v88"/>
-                            <constraint firstItem="NsK-dG-6Kv" firstAttribute="leading" secondItem="5tn-Ha-22A" secondAttribute="trailing" constant="8" id="eWb-NX-ljy"/>
                             <constraint firstItem="5tn-Ha-22A" firstAttribute="top" relation="greaterThanOrEqual" secondItem="SB2-2i-bBa" secondAttribute="top" constant="8" id="iKp-0E-8wd"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NsK-dG-6Kv" secondAttribute="bottom" constant="8" id="p3Z-aa-bb9"/>
                             <constraint firstAttribute="bottom" secondItem="SPP-vE-C8Z" secondAttribute="bottom" id="r2H-b4-Suj"/>
-                            <constraint firstAttribute="trailing" secondItem="NsK-dG-6Kv" secondAttribute="trailing" constant="16" id="sbo-xG-Slg"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NsK-dG-6Kv" secondAttribute="trailing" constant="16" id="sbo-xG-Slg"/>
                             <constraint firstItem="SPP-vE-C8Z" firstAttribute="leading" secondItem="SB2-2i-bBa" secondAttribute="leading" id="uWV-N9-hEs"/>
                             <constraint firstItem="5tn-Ha-22A" firstAttribute="leading" secondItem="SB2-2i-bBa" secondAttribute="leading" constant="16" id="vVi-4t-iLt"/>
                             <constraint firstItem="5tn-Ha-22A" firstAttribute="centerY" secondItem="SB2-2i-bBa" secondAttribute="centerY" id="vo3-AR-EFH"/>

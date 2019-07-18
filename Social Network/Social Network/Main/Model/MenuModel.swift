@@ -14,6 +14,7 @@ class MenuModel {
     static let MENU_2 = 1
     static let MENU_3 = 2
     static let MENU_4 = 3
+    static let MENU_5 = 4
     
     var id: Int?
     var imageResource: String?
