@@ -30,4 +30,19 @@ class Repository: BaseRepository {
         let params = Dictionary<String, Any>.init()
         return self.callGetMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func updateProfile(token: String, fullName: String, userName: String, phone: String, birhday: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.UPDATE_PROFILE_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
+        params["full_name"] = fullName
+        params["user_name"] = userName
+        params["phone"] = phone
+        params["birthday"] = birhday
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
+    func profile( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.PROFILE_URL)"
+        let params = Dictionary<String, Any>.init()
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
 }

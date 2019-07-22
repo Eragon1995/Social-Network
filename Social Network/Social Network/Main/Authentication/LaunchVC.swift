@@ -58,13 +58,24 @@ class LaunchVC: BaseViewController {
                 UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
                 let birthDay = data?.data?.birthday ?? ""
                 UserDataManager.shared.setBirthDay(day: birthDay)
-                let storyBoad = UIStoryboard(name: "Main", bundle: nil)
-                if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
+                let phone = data?.data?.phone
+                if birthDay == "" || phone == "" {
+                    let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+                    let vc = mainSB.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
+                    vc.userName = data?.data?.userName ?? ""
                     UserDataManager.shared.setToken(token: token)
                     UserDataManager.shared.setEmail(email: email)
                     UserDataManager.shared.setPass(pass: self.pass)
-                    tabbar.selectedIndex = 0
-                    self.navigationController?.pushViewController(tabbar, animated: true)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let storyBoad = UIStoryboard(name: "Main", bundle: nil)
+                    if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
+                        UserDataManager.shared.setToken(token: token)
+                        UserDataManager.shared.setEmail(email: email)
+                        UserDataManager.shared.setPass(pass: self.pass)
+                        tabbar.selectedIndex = 0
+                        self.navigationController?.pushViewController(tabbar, animated: true)
+                    }
                 }
             } else {
                 self.showAlert(message: response.message)

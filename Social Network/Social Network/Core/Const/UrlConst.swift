@@ -14,5 +14,11 @@ enum URLConst {
     static let POST_PUBLIC_URL = ApiConst.BASE_URL + "post/public"
     //RandomImage
     static let RANDOM_IMAGE_URL = ApiConst.BASE_URL + "default/randomImage"
+    //UpdateProfile
+    static let UPDATE_PROFILE_URL = ApiConst.BASE_URL + "profile/update"
+    //Profile
+    static let PROFILE_URL = ApiConst.BASE_URL + "profile"
+    //UploadAvatar
+    static let UPLOAD_AVATAR_URL = ApiConst.BASE_URL + "profile/avatar/upload"
 }
 

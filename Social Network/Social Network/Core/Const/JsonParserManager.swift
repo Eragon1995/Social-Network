@@ -39,4 +39,18 @@ class JsonParserManager {
         }
         return nil
     }
+    static func updateProfile(jsonString: String) -> UpdateProfileModel? {
+        if let jsonData = jsonString.data(using: .utf8) {
+            let data = try? JSONDecoder().decode(UpdateProfileModel.self, from: jsonData)
+            return data;
+        }
+        return nil
+    }
+    static func profile(jsonString: String) -> ProfileModel? {
+        if let jsonData = jsonString.data(using: .utf8) {
+            let data = try? JSONDecoder().decode(ProfileModel.self, from: jsonData)
+            return data;
+        }
+        return nil
+    }
 }
