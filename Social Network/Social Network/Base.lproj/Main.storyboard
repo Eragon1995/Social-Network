@@ -606,16 +606,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-K3-mRC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Vs-H6e">
+                                        <rect key="frame" x="16" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SHD-Vs-H6e" secondAttribute="height" multiplier="1:1" id="1e2-ev-KV5"/>
+                                            <constraint firstAttribute="width" constant="40" id="bw1-k5-0v6"/>
+                                        </constraints>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="touchBack:" destination="YY9-Q6-kQx" eventType="touchUpInside" id="ODL-AJ-U6W"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoàn tất thông tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUi-Um-ZHx">
-                                        <rect key="frame" x="16" y="17.5" width="382" height="21"/>
+                                        <rect key="frame" x="72" y="19.5" width="326" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhy-e9-ro3">
-                                        <rect key="frame" x="0.0" y="55" width="414" height="1"/>
+                                        <rect key="frame" x="0.0" y="59" width="414" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Znf-LO-GLd"/>
@@ -624,17 +635,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="4Lr-XG-4tC"/>
+                                    <constraint firstAttribute="height" constant="60" id="4Lr-XG-4tC"/>
                                     <constraint firstItem="nUi-Um-ZHx" firstAttribute="centerY" secondItem="eIq-K3-mRC" secondAttribute="centerY" id="DZ6-Lb-Ce6"/>
                                     <constraint firstItem="yhy-e9-ro3" firstAttribute="leading" secondItem="eIq-K3-mRC" secondAttribute="leading" id="GOM-Ri-8Z3"/>
                                     <constraint firstAttribute="trailing" secondItem="nUi-Um-ZHx" secondAttribute="trailing" constant="16" id="Hyh-EP-HXM"/>
+                                    <constraint firstItem="SHD-Vs-H6e" firstAttribute="leading" secondItem="eIq-K3-mRC" secondAttribute="leading" constant="16" id="Msi-VR-jCO"/>
                                     <constraint firstAttribute="trailing" secondItem="yhy-e9-ro3" secondAttribute="trailing" id="a4B-Uf-2JA"/>
+                                    <constraint firstItem="SHD-Vs-H6e" firstAttribute="centerY" secondItem="nUi-Um-ZHx" secondAttribute="centerY" id="cCY-GZ-mQ8"/>
+                                    <constraint firstItem="nUi-Um-ZHx" firstAttribute="leading" secondItem="SHD-Vs-H6e" secondAttribute="trailing" constant="16" id="itN-qt-OG0"/>
                                     <constraint firstAttribute="bottom" secondItem="yhy-e9-ro3" secondAttribute="bottom" id="nyc-1O-juz"/>
-                                    <constraint firstItem="nUi-Um-ZHx" firstAttribute="leading" secondItem="eIq-K3-mRC" secondAttribute="leading" constant="16" id="xnE-vZ-Zfk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-j7-rma">
-                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KaG-B4-bw7">
                                         <rect key="frame" x="132" y="36" width="150" height="150"/>
@@ -655,7 +668,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlz-ib-bft">
-                                        <rect key="frame" x="0.0" y="222" width="414" height="540"/>
+                                        <rect key="frame" x="0.0" y="222" width="414" height="536"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zb8-2l-DqI">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -782,7 +795,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOg-di-EkC">
-                                                <rect key="frame" x="16" y="464" width="382" height="40"/>
+                                                <rect key="frame" x="16" y="460" width="382" height="40"/>
                                                 <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="S0v-H9-Lbj"/>

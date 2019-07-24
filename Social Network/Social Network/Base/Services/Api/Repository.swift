@@ -45,4 +45,11 @@ class Repository: BaseRepository {
         let params = Dictionary<String, Any>.init()
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func uploadAvata(token: String, uploadFile: Data, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.UPLOAD_AVATAR_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
+        params["uploadFile"] = uploadFile
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
 }

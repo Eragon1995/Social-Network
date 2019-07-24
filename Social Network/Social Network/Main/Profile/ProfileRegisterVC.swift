@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -20,6 +21,9 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
     var imgData: Data!
     private var datePicker: UIDatePicker?
     
+    @IBAction func touchBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func touchUploadAvt(_ sender: Any) {
         let alert:UIAlertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
         let btnPhoto:UIAlertAction = UIAlertAction(title: "Photo", style: .destructive) { (UIAlertAction) in
@@ -62,6 +66,12 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
         self.setupDatePicker()
         self.lblFullName.text = UserDataManager.shared.getFullName()
         self.lblUserName.text = self.userName
+        guard let img = UserDataManager.shared.getLinkAvatar() else {
+            return
+        }
+        if let url = URL(string: img) {
+            self.imgAvatar.kf.setImage(with: url)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -78,31 +88,48 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
         imgAvatar.image = UIImage(data: imgData)
         dismiss(animated: true, completion: nil)
         let fileName = NSUUID().uuidString
-        self.uploadImage(data: imgData, withName: "uploadFiles[]", fileName: "\(fileName).jpeg", mimeType: "image/jpeg")
+        self.uploadImage(data: imgData, withName: "uploadFile", fileName: "\(fileName).jpeg", mimeType: "image/jpeg")
     }
     
     func uploadImage(data: Data, withName: String, fileName: String, mimeType: String) {
-        self.showLoading()
+        var parameters = [ :
+            
+        ] as [String : Any]
+        if let token = UserDataManager.shared.getToken() {
+            parameters["token"] = token
+        }
         Alamofire.upload(multipartFormData:{
             multipartFormData in
-            multipartFormData.append(data, withName: "uploadFiles[]", fileName: fileName, mimeType: mimeType)},
+            for (key, value) in parameters {
+                if let value = value as? String {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                }
+            }
+            multipartFormData.append(data, withName: "uploadFile", fileName: fileName, mimeType: mimeType)
+        },
                          usingThreshold:UInt64.init(),
-                         to:URLConst.UPLOAD_AVATAR_URL,
-                         method:.post,
-                         headers:["token": UserDataManager.shared.getToken()! ],
-                         encodingCompletion: { encodingResult in
-                            switch encodingResult {
-                            case .success(let upload, _, _ ):
+                         to: URLConst.UPLOAD_AVATAR_URL) { (result) in
+                            switch result {
+                            case .success(let upload, _, _):
+                                upload.uploadProgress(closure: { (progress) in
+                                })
+                                
                                 upload.responseJSON { response in
-                                    self.hideLoading()
-                                    debugPrint(response)
-                                    print("Upload Avatar Success")
+                                    if let json = response.result.value
+                                    {
+                                        if let jsonData = JSON(json).dictionary, let data = jsonData["data"]?.dictionary
+                                        {
+                                            let url = data["avatar_url"]?.stringValue ?? ""
+                                            print("LEU LEU \(url)")
+                                            UserDataManager.shared.setLinkAvatar(linkAvartar: url)
+                                        }
+                                    }
                                 }
+                                
                             case .failure(let encodingError):
-                                self.hideLoading()
                                 print(encodingError)
                             }
-        })
+        }
     }
     
     func updateProfile() {
@@ -126,6 +153,19 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
     }
     @IBAction func touchDone(_ sender: Any) {
         self.updateProfile()
+//        self.uploadAvatar()
+    }
+    func uploadAvatar() {
+        self.showLoading()
+        let token = UserDataManager.shared.getToken() ?? ""
+        Repository().uploadAvata(token: token, uploadFile: imgData) { [unowned self] (reponse) in
+            self.hideLoading()
+            if reponse.isSuccess() {
+                self.showAlert(message: reponse.message)
+            } else {
+                self.showAlert(message: reponse.message)
+            }
+        }
     }
     func setupDatePicker() {
         datePicker = UIDatePicker()
