@@ -9,9 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Firebase
 
 class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var btnDone: UIButton!
+    @IBOutlet weak var lblHeader: UILabel!
+    @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var lblBirthDay: UITextField!
     @IBOutlet weak var lblNumberPhone: UITextField!
     @IBOutlet weak var lblUserName: UITextField!
@@ -19,6 +23,8 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var imgAvatar: UIImageView!
     var userName: String = ""
     var imgData: Data!
+    var controller: String = ""
+    var token: String = ""
     private var datePicker: UIDatePicker?
     
     @IBAction func touchBack(_ sender: Any) {
@@ -72,6 +78,16 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
         if let url = URL(string: img) {
             self.imgAvatar.kf.setImage(with: url)
         }
+        if self.controller == "Edit" {
+            self.btnBack.isHidden = false
+            self.lblHeader.text = "Thông tin cá nhân"
+            self.btnDone.setTitle("Chỉnh sửa", for: .normal)
+            self.getMyProfile()
+        } else {
+            self.btnBack.isHidden = true
+            self.lblHeader.text = "Hoàn tất thông tin"
+            self.btnDone.setTitle("Hoàn thành", for: .normal)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -122,6 +138,7 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
                                             let url = data["avatar_url"]?.stringValue ?? ""
                                             print("LEU LEU \(url)")
                                             UserDataManager.shared.setLinkAvatar(linkAvartar: url)
+                                            self.loadAvatarFirebase()
                                         }
                                     }
                                 }
@@ -153,19 +170,38 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
     }
     @IBAction func touchDone(_ sender: Any) {
         self.updateProfile()
-//        self.uploadAvatar()
     }
-    func uploadAvatar() {
-        self.showLoading()
-        let token = UserDataManager.shared.getToken() ?? ""
-        Repository().uploadAvata(token: token, uploadFile: imgData) { [unowned self] (reponse) in
-            self.hideLoading()
-            if reponse.isSuccess() {
-                self.showAlert(message: reponse.message)
+    func loadAvatarFirebase() {
+        let email = UserDataManager.shared.getEmail() ?? ""
+        let avatarRef = storageRef.child("images/\(email).ipg")
+        let uploadTask = avatarRef.putData(self.imgData, metadata: nil) { metadata, error in
+            if error != nil {
+                print("AVT Error")
             } else {
-                self.showAlert(message: reponse.message)
+                avatarRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    return
+                    }
+                    let user = Auth.auth().currentUser
+                    if let user = user {
+                        let changeRequest = user.createProfileChangeRequest()
+                        let fullName = UserDataManager.shared.getFullName() ?? ""
+                        changeRequest.displayName = fullName
+                        changeRequest.photoURL = downloadURL
+                        changeRequest.commitChanges(completion: { (error) in
+                            if(error == nil)
+                            {
+                                print("UpLoadProfile Firebase Success")
+                            }else
+                            {
+                                print("Error upload profile")
+                            }
+                        })
+                    }
+                }
             }
         }
+        uploadTask.resume()
     }
     func setupDatePicker() {
         datePicker = UIDatePicker()
@@ -179,5 +215,21 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
         dateFormatter.dateFormat = "dd/MM/yyyy"
         self.lblBirthDay.text = dateFormatter.string(from: (datePicker?.date)!)
         view.endEditing(true)
+    }
+    func getMyProfile() {
+        self.showLoading()
+        let token = UserDataManager.shared.getToken() ?? ""
+        Repository().profile(token: token) { (response) in
+            self.hideLoading()
+            if response.isSuccess() {
+                let data = JsonParserManager.profile(jsonString: response.rawData ?? "")
+                self.lblFullName.text = data?.data.fullName ?? ""
+                self.lblUserName.text = data?.data.userName ?? ""
+                self.lblBirthDay.text = data?.data.birthday ?? ""
+                self.lblNumberPhone.text = data?.data.phone ?? ""
+            } else {
+                self.showAlert(message: response.message)
+            }
+        }
     }
 }

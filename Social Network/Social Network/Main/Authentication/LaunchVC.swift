@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+let storage = Storage.storage()
+let storageRef = storage.reference(forURL: "gs://social-network-312be.appspot.com/")
+
 class LaunchVC: BaseViewController {
 
     let email = UserDataManager.shared.getEmail() ?? ""
@@ -53,17 +56,19 @@ class LaunchVC: BaseViewController {
                 let token = data?.data?.token ?? ""
                 let email = data?.data?.email ?? ""
                 let fullName = data?.data?.fullName ?? ""
-                UserDataManager.shared.setFullName(fullName: fullName)
                 let avtUrl = data?.data?.avatarURL ?? ""
-                UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
                 let birthDay = data?.data?.birthday ?? ""
-                UserDataManager.shared.setBirthDay(day: birthDay)
                 let phone = data?.data?.phone
+                let userName = data?.data?.userName ?? ""
                 if birthDay == "" || phone == "" {
                     let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
                     let vc = mainSB.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
                     vc.userName = data?.data?.userName ?? ""
+                    UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
+                    UserDataManager.shared.setFullName(fullName: fullName)
+                    UserDataManager.shared.setUserName(userName: userName)
                     UserDataManager.shared.setToken(token: token)
+                    UserDataManager.shared.setBirthDay(day: birthDay)
                     UserDataManager.shared.setEmail(email: email)
                     UserDataManager.shared.setPass(pass: self.pass)
                     self.navigationController?.pushViewController(vc, animated: true)
@@ -71,6 +76,10 @@ class LaunchVC: BaseViewController {
                     let storyBoad = UIStoryboard(name: "Main", bundle: nil)
                     if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
                         UserDataManager.shared.setToken(token: token)
+                        UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
+                        UserDataManager.shared.setFullName(fullName: fullName)
+                        UserDataManager.shared.setUserName(userName: userName)
+                        UserDataManager.shared.setBirthDay(day: birthDay)
                         UserDataManager.shared.setEmail(email: email)
                         UserDataManager.shared.setPass(pass: self.pass)
                         tabbar.selectedIndex = 0

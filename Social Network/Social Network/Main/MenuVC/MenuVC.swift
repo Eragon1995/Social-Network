@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuVC: BaseViewController  {
     
@@ -72,17 +73,28 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
         let menuItem = self.arrMenuItem[indexPath.row]
         switch menuItem.id {
         case MenuModel.MENU_1:
-            print("Seleted \(indexPath.row)")
+            let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            let vc = mainSb.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
+            vc.controller = "Edit"
+            self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_2:
             print("Selected \(indexPath.row)")
         case MenuModel.MENU_3:
-            print("Selected \(indexPath.row)")
+            let vc = ListFriendVC.init(nibName: "ListFriendVC", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_4:
-            print("Go to ChatVC")
+            let vc = ChatHistoryVC.init(nibName: "ChatHistoryVC", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_5:
-            UserDataManager.shared.clearUserData()
             let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             let vc = mainSB.instantiateViewController(withIdentifier: "AuthenticationVC") as! AuthenticationVC
+            UserDataManager.shared.clearUserData()
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         default:
             break

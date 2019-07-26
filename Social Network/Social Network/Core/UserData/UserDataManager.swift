@@ -5,6 +5,7 @@ class UserDataManager: NSObject {
     static let KEY_EMAIL = "KEY_USER_ID"
     static let KEY_DEVICE_TOKEN = "KEY_DEVICE_TOKEN"
     static let KEY_FULL_NAME = "KEY_FULL_NAME"
+    static let KEY_USER_NAME = "KEY_USER_NAME"
     static let KEY_LINK_AVATAR = "KEY_LINK_AVATAR"
     static let KEY_TOKEN = "KEY_TOKEN"
     static let KEY_PHONE = "KEY_PHONE"
@@ -102,6 +103,15 @@ class UserDataManager: NSObject {
         return defaults?.string(forKey: UserDataManager.KEY_FULL_NAME)
     }
     
+    //User name
+    func setUserName(userName: String) {
+        defaults?.set(userName, forKey: UserDataManager.KEY_USER_NAME)
+    }
+    
+    func getUserName() -> String? {
+        return defaults?.string(forKey: UserDataManager.KEY_USER_NAME)
+    }
+    
     // Link Avatar ==============================================
     func setLinkAvatar(linkAvartar: String) {
         defaults?.set(linkAvartar, forKey: UserDataManager.KEY_LINK_AVATAR)
@@ -113,13 +123,11 @@ class UserDataManager: NSObject {
     
     func clearUserData() -> Void {
         defaults?.removeObject(forKey: UserDataManager.KEY_EMAIL)
+        defaults?.removeObject(forKey: UserDataManager.KEY_USER_NAME)
+        defaults?.removeObject(forKey: UserDataManager.KEY_BIRTHDAY)
         defaults?.removeObject(forKey: UserDataManager.KEY_FULL_NAME)
         defaults?.removeObject(forKey: UserDataManager.KEY_LINK_AVATAR)
-        defaults?.removeObject(forKey: UserDataManager.KEY_LOGIN_TYPE)
-        defaults?.removeObject(forKey: UserDataManager.KEY_FACEBOOK)
-        defaults?.removeObject(forKey: UserDataManager.KEY_PASS)
-        defaults?.removeObject(forKey: UserDataManager.KEY_PHONE)
         defaults?.removeObject(forKey: UserDataManager.KEY_TOKEN)
+        defaults?.removeObject(forKey: UserDataManager.KEY_PASS)
     }
-    
 }

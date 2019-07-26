@@ -24,20 +24,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4RH-wm-1tv">
                     <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JG-Fo-38c">
-                            <rect key="frame" x="16" y="8" width="382" height="34"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh sách bạn bè" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JG-Fo-38c">
+                            <rect key="frame" x="64" y="8" width="334" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IWE-OW-Wae">
+                            <rect key="frame" x="16" y="4" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="3P3-zS-Ayj"/>
+                                <constraint firstAttribute="width" secondItem="IWE-OW-Wae" secondAttribute="height" multiplier="1:1" id="xaV-54-H93"/>
+                            </constraints>
+                            <state key="normal" title="Back"/>
+                            <connections>
+                                <action selector="touchBack:" destination="-1" eventType="touchUpInside" id="9Xk-qV-bHZ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="1JG-Fo-38c" firstAttribute="leading" secondItem="IWE-OW-Wae" secondAttribute="trailing" constant="8" id="9hr-B1-cJT"/>
+                        <constraint firstItem="IWE-OW-Wae" firstAttribute="top" secondItem="4RH-wm-1tv" secondAttribute="top" constant="4" id="BIZ-ev-xkf"/>
                         <constraint firstItem="1JG-Fo-38c" firstAttribute="top" secondItem="4RH-wm-1tv" secondAttribute="top" constant="8" id="Lcl-XN-jTX"/>
                         <constraint firstAttribute="height" constant="50" id="Sss-JQ-35Q"/>
                         <constraint firstAttribute="trailing" secondItem="1JG-Fo-38c" secondAttribute="trailing" constant="16" id="XjW-K0-LKy"/>
-                        <constraint firstItem="1JG-Fo-38c" firstAttribute="leading" secondItem="4RH-wm-1tv" secondAttribute="leading" constant="16" id="n3V-e2-on1"/>
                         <constraint firstAttribute="bottom" secondItem="1JG-Fo-38c" secondAttribute="bottom" constant="8" id="sib-9z-Gb4"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IWE-OW-Wae" secondAttribute="bottom" constant="4" id="tG7-Bd-rxO"/>
+                        <constraint firstItem="IWE-OW-Wae" firstAttribute="leading" secondItem="4RH-wm-1tv" secondAttribute="leading" constant="16" id="yiB-Ab-D2u"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bE0-h0-K0X">

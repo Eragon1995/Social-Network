@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 
+var ref: DatabaseReference! = Database.database().reference()
+var currentUser: UserModel!
+
 class ChatHistoryVC: BaseViewController {
 
     var arrUserChat: Array<UserModel> = Array<UserModel>()

@@ -10,13 +10,14 @@ import UIKit
 import Firebase
 
 var visitor: UserModel!
-let ref = Database.database().reference()
-var currentUser: UserModel!
 
 class ListFriendVC: BaseViewController {
     
     var listFriend: Array<UserModel> = Array<UserModel>()
 
+    @IBAction func touchBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,24 @@ extension ListFriendVC: UITableViewDelegate, UITableViewDataSource {
         return self.listFriend.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cellTable = tableView.dequeueReusableCell(withIdentifier: "CellListFriend")
+        var cell: CellListFriend!
+        if cellTable == nil {
+            cell = Bundle.main.loadNibNamed("CellListFriend", owner: self, options: nil)?.first as? CellListFriend
+        } else {
+            cell = cellTable as? CellListFriend
+        }
+        cell.lblName.text = self.listFriend[indexPath.row].fullName
+        let url = self.listFriend[indexPath.row].linkAvatar ?? ""
+        if url.count != 0 {
+            if let url = URL(string: url) {
+                cell.imgAvatar.kf.setImage(with: url)
+            }
+        } else {
+            cell.imgAvatar.image = UIImage.init(named: "defaultAvt")
+        }
+
+        return cell
     }
 }
 

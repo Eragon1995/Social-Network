@@ -10,8 +10,7 @@ import UIKit
 import AccountKit
 import Firebase
 
-let storage = Storage.storage()
-let storageRef = storage.reference(forURL: "gs://social-network-312be.appspot.com/")
+
 
 class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
 
@@ -48,20 +47,22 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
         Repository().register(email: self.tfEmailRegister.text ?? "", password: self.tfPasswordRegister.text ?? "", userName: self.tfNameRegister.text ?? "") { [unowned self] (response) in
             self.hideLoading()
             if response.isSuccess() {
-                self.registerFireBaseAC()
                 let data = JsonParserManager.register(jsonString: response.rawData ?? "")
-                print("leu leu \(data?.data.email ?? "") \(data?.data.fullName ?? "") \(data?.data.token ?? "")")
-                let token = data?.data.token ?? ""
-                let email = data?.data.email ?? ""
+                let token = data?.data?.token ?? ""
+                let email = data?.data?.email ?? ""
                 let password = self.tfPasswordRegister.text ?? ""
-                let fullName = data?.data.fullName ?? ""
-                UserDataManager.shared.setFullName(fullName: fullName)
+                let fullName = data?.data?.fullName ?? ""
+                let userName = data?.data?.userName ?? ""
                 let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
                 let vc = mainSB.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
-                vc.userName = data?.data.userName ?? ""
+                vc.userName = data?.data?.userName ?? ""
+                vc.token = data?.data?.token ?? ""
+                UserDataManager.shared.setFullName(fullName: fullName)
                 UserDataManager.shared.setToken(token: token)
                 UserDataManager.shared.setEmail(email: email)
                 UserDataManager.shared.setPass(pass: password)
+                UserDataManager.shared.setUserName(userName: userName)
+                self.registerFireBaseAC()
                 self.navigationController?.pushViewController(vc, animated: true)
             } else {
                 self.showAlert(message: response.message)
@@ -79,17 +80,19 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
                 let email = data?.data?.email ?? ""
                 let password = self.tfPasswordLogin.text ?? ""
                 let fullName = data?.data?.fullName ?? ""
-                UserDataManager.shared.setFullName(fullName: fullName)
                 let avtUrl = data?.data?.avatarURL ?? ""
-                UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
                 let birthDay = data?.data?.birthday ?? ""
-                UserDataManager.shared.setBirthDay(day: birthDay)
-                
+                let userName = data?.data?.userName ?? ""
                 let phone = data?.data?.phone
                 if birthDay == "" || phone == "" {
                     let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
                     let vc = mainSB.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
                     vc.userName = data?.data?.userName ?? ""
+                    vc.token = data?.data?.token ?? ""
+                    UserDataManager.shared.setUserName(userName: userName)
+                    UserDataManager.shared.setBirthDay(day: birthDay)
+                    UserDataManager.shared.setFullName(fullName: fullName)
+                    UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
                     UserDataManager.shared.setToken(token: token)
                     UserDataManager.shared.setEmail(email: email)
                     UserDataManager.shared.setPass(pass: password)
@@ -98,6 +101,10 @@ class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
                     let storyBoad = UIStoryboard(name: "Main", bundle: nil)
                     if let tabbar: UITabBarController = storyBoad.instantiateViewController(withIdentifier: "MainTabbarVC") as? UITabBarController {
                         UserDataManager.shared.setToken(token: token)
+                        UserDataManager.shared.setFullName(fullName: fullName)
+                        UserDataManager.shared.setBirthDay(day: birthDay)
+                        UserDataManager.shared.setUserName(userName: userName)
+                        UserDataManager.shared.setLinkAvatar(linkAvartar: avtUrl)
                         UserDataManager.shared.setEmail(email: email)
                         UserDataManager.shared.setPass(pass: password)
                         tabbar.selectedIndex = 0

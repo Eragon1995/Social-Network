@@ -20,6 +20,10 @@
 		C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */; };
 		C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */; };
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
+		C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34922E954D40039CD35 /* CellListFriend.swift */; };
+		C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81BA34A22E954D40039CD35 /* CellListFriend.xib */; };
+		C81BA35022E957EB0039CD35 /* CellChat2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34E22E957EB0039CD35 /* CellChat2.swift */; };
+		C81BA35122E957EB0039CD35 /* CellChat2.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81BA34F22E957EB0039CD35 /* CellChat2.xib */; };
 		C8229E4222DC18760045A1C2 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4122DC18760045A1C2 /* LaunchVC.swift */; };
 		C8229E4622DC21BF0045A1C2 /* CellMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4422DC21BF0045A1C2 /* CellMain.swift */; };
 		C8229E4722DC21BF0045A1C2 /* CellMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8229E4522DC21BF0045A1C2 /* CellMain.xib */; };
@@ -117,6 +121,10 @@
 		C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryVC.swift; sourceTree = "<group>"; };
 		C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryVC.xib; sourceTree = "<group>"; };
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		C81BA34922E954D40039CD35 /* CellListFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellListFriend.swift; sourceTree = "<group>"; };
+		C81BA34A22E954D40039CD35 /* CellListFriend.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellListFriend.xib; sourceTree = "<group>"; };
+		C81BA34E22E957EB0039CD35 /* CellChat2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellChat2.swift; sourceTree = "<group>"; };
+		C81BA34F22E957EB0039CD35 /* CellChat2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellChat2.xib; sourceTree = "<group>"; };
 		C8229E4122DC18760045A1C2 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		C8229E4422DC21BF0045A1C2 /* CellMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMain.swift; sourceTree = "<group>"; };
 		C8229E4522DC21BF0045A1C2 /* CellMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellMain.xib; sourceTree = "<group>"; };
@@ -241,6 +249,7 @@
 		C8047F1922E05A3900FC5799 /* ListFriend */ = {
 			isa = PBXGroup;
 			children = (
+				C81BA34822E954A70039CD35 /* CellListFriend */,
 				C8047F1A22E05AB500FC5799 /* ListFriendVC.swift */,
 				C8047F1B22E05AB500FC5799 /* ListFriendVC.xib */,
 			);
@@ -250,6 +259,7 @@
 		C8047F2022E06B9D00FC5799 /* ChatHistory */ = {
 			isa = PBXGroup;
 			children = (
+				C81BA34D22E957D00039CD35 /* CellChat2 */,
 				C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */,
 				C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */,
 			);
@@ -282,6 +292,24 @@
 				C8C2208D22E59AC700D85639 /* ProfileModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C81BA34822E954A70039CD35 /* CellListFriend */ = {
+			isa = PBXGroup;
+			children = (
+				C81BA34922E954D40039CD35 /* CellListFriend.swift */,
+				C81BA34A22E954D40039CD35 /* CellListFriend.xib */,
+			);
+			path = CellListFriend;
+			sourceTree = "<group>";
+		};
+		C81BA34D22E957D00039CD35 /* CellChat2 */ = {
+			isa = PBXGroup;
+			children = (
+				C81BA34E22E957EB0039CD35 /* CellChat2.swift */,
+				C81BA34F22E957EB0039CD35 /* CellChat2.xib */,
+			);
+			path = CellChat2;
 			sourceTree = "<group>";
 		};
 		C8229E4322DC21480045A1C2 /* CellMain */ = {
@@ -655,9 +683,11 @@
 				DF14337422D5C22C000BAEF5 /* FormatLoadingView.xib in Resources */,
 				C8383B2222D7111800E897BE /* MenuVC.xib in Resources */,
 				DF6747A322C07FB100735AC9 /* Main.storyboard in Resources */,
+				C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */,
 				DF14336A22D5C22C000BAEF5 /* SimplePopoverCell.xib in Resources */,
 				C8047F1D22E05AB500FC5799 /* ListFriendVC.xib in Resources */,
 				DF14336E22D5C22C000BAEF5 /* AlertViewController.xib in Resources */,
+				C81BA35122E957EB0039CD35 /* CellChat2.xib in Resources */,
 				C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,6 +754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81BA35022E957EB0039CD35 /* CellChat2.swift in Sources */,
 				DF14336522D5C22C000BAEF5 /* BaseView.swift in Sources */,
 				C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */,
 				DF14337D22D5C22C000BAEF5 /* ImageLoader.swift in Sources */,
@@ -787,6 +818,7 @@
 				DF14338922D5C22C000BAEF5 /* AppConst.swift in Sources */,
 				DF14335122D5C22C000BAEF5 /* Collection+Extension.swift in Sources */,
 				DF14335D22D5C22C000BAEF5 /* LocationManager.swift in Sources */,
+				C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */,
 				C8229E4222DC18760045A1C2 /* LaunchVC.swift in Sources */,
 				C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */,
 				C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */,

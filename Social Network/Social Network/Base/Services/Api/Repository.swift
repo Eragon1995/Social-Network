@@ -40,9 +40,10 @@ class Repository: BaseRepository {
         params["birthday"] = birhday
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
-    func profile( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+    func profile(token: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
         let url = "\(URLConst.PROFILE_URL)"
-        let params = Dictionary<String, Any>.init()
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
     func uploadAvata(token: String, uploadFile: Data, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {

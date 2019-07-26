@@ -608,7 +608,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIq-K3-mRC">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Vs-H6e">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Vs-H6e">
                                         <rect key="frame" x="16" y="10" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SHD-Vs-H6e" secondAttribute="height" multiplier="1:1" id="1e2-ev-KV5"/>
@@ -858,9 +858,12 @@
                         <viewLayoutGuide key="safeArea" id="ngl-dP-tXJ"/>
                     </view>
                     <connections>
+                        <outlet property="btnBack" destination="SHD-Vs-H6e" id="FxG-Ze-s3L"/>
+                        <outlet property="btnDone" destination="NOg-di-EkC" id="ndS-xJ-ALT"/>
                         <outlet property="imgAvatar" destination="KaG-B4-bw7" id="KQG-du-paY"/>
                         <outlet property="lblBirthDay" destination="VWa-6I-tCZ" id="vHS-Ix-Knm"/>
                         <outlet property="lblFullName" destination="aJF-nv-1UF" id="EYj-K2-Cec"/>
+                        <outlet property="lblHeader" destination="nUi-Um-ZHx" id="XIQ-UC-3lS"/>
                         <outlet property="lblNumberPhone" destination="8Am-44-e9H" id="JZs-ER-5EW"/>
                         <outlet property="lblUserName" destination="TxM-Ip-0hq" id="Cpb-zu-ZWg"/>
                     </connections>

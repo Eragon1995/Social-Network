@@ -18,6 +18,7 @@ class JsonParserManager {
         }
         return nil
     }
+    
     static func login(jsonString: String) -> LoginModel? {
         if let jsonData = jsonString.data(using: .utf8) {
             let data = try? JSONDecoder().decode(LoginModel.self, from: jsonData)
