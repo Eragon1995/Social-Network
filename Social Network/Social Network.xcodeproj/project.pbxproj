@@ -20,6 +20,8 @@
 		C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */; };
 		C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */; };
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
+		C80B404C22EECE8600B6A613 /* ShowCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */; };
+		C80B404D22EECE8600B6A613 /* ShowCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */; };
 		C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34922E954D40039CD35 /* CellListFriend.swift */; };
 		C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81BA34A22E954D40039CD35 /* CellListFriend.xib */; };
 		C81BA35022E957EB0039CD35 /* CellChat2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34E22E957EB0039CD35 /* CellChat2.swift */; };
@@ -121,6 +123,8 @@
 		C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryVC.swift; sourceTree = "<group>"; };
 		C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryVC.xib; sourceTree = "<group>"; };
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentVC.swift; sourceTree = "<group>"; };
+		C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCommentVC.xib; sourceTree = "<group>"; };
 		C81BA34922E954D40039CD35 /* CellListFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellListFriend.swift; sourceTree = "<group>"; };
 		C81BA34A22E954D40039CD35 /* CellListFriend.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellListFriend.xib; sourceTree = "<group>"; };
 		C81BA34E22E957EB0039CD35 /* CellChat2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellChat2.swift; sourceTree = "<group>"; };
@@ -294,6 +298,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C80B404922EECE6600B6A613 /* ShowComment */ = {
+			isa = PBXGroup;
+			children = (
+				C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */,
+				C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */,
+			);
+			path = ShowComment;
+			sourceTree = "<group>";
+		};
 		C81BA34822E954A70039CD35 /* CellListFriend */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +345,7 @@
 		C8383B1B22D710BE00E897BE /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				C80B404922EECE6600B6A613 /* ShowComment */,
 				C804177C22DC752C001A9BB5 /* CellComment */,
 				C8229E4322DC21480045A1C2 /* CellMain */,
 				C8383B1C22D710E300E897BE /* HomeVC.swift */,
@@ -677,6 +691,7 @@
 				DF14337222D5C22C000BAEF5 /* LoadingView.xib in Resources */,
 				DF14336F22D5C22C000BAEF5 /* AlertConfirmViewController.xib in Resources */,
 				C804178022DC7543001A9BB5 /* CellComment.xib in Resources */,
+				C80B404D22EECE8600B6A613 /* ShowCommentVC.xib in Resources */,
 				DF14336B22D5C22C000BAEF5 /* SimplePopoverViewController.xib in Resources */,
 				DF6747A522C07FB200735AC9 /* Assets.xcassets in Resources */,
 				C8383B2722D7127500E897BE /* CellMenu.xib in Resources */,
@@ -811,6 +826,7 @@
 				DF14336422D5C22C000BAEF5 /* Localizable.swift in Sources */,
 				DF14336922D5C22C000BAEF5 /* PopoverControllerProtocol.swift in Sources */,
 				DF14337B22D5C22C000BAEF5 /* ApiResponse.swift in Sources */,
+				C80B404C22EECE8600B6A613 /* ShowCommentVC.swift in Sources */,
 				C804177F22DC7543001A9BB5 /* CellComment.swift in Sources */,
 				C8C2208822E5952400D85639 /* ProfileRegisterVC.swift in Sources */,
 				DF14336822D5C22C000BAEF5 /* ViewHasToolBar.swift in Sources */,

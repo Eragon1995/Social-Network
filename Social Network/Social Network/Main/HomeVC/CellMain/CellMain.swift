@@ -10,13 +10,23 @@ import UIKit
 import Kingfisher
 
 enum NumberPhoto: Int {
+    case zero = 0
     case one = 1
     case two = 2
     case three = 3
 }
 
+protocol CellMainDelegate {
+    func showMore(indexPath: IndexPath)
+}
+
 class CellMain: UITableViewCell {
 
+    var indexPath: IndexPath = IndexPath(row: -1, section: -1)
+    var delegate: CellMainDelegate! = nil
+    @IBOutlet weak var btnShowMore: UIButton!
+    @IBOutlet weak var lblNumberComment: UILabel!
+    @IBOutlet weak var lblNumberLike: UILabel!
     @IBOutlet weak var bigViewHeight: NSLayoutConstraint!
     @IBOutlet weak var img3: UIImageView!
     @IBOutlet weak var img2: UIImageView!
@@ -31,6 +41,9 @@ class CellMain: UITableViewCell {
     var model: PostPublicModel.List?
     var section = -1
     @IBAction func touchLike(_ sender: Any) {
+    }
+    @IBAction func touchShowMore(_ sender: Any) {
+        delegate.showMore(indexPath: indexPath)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,14 +68,36 @@ class CellMain: UITableViewCell {
             }
             self.lblName.text = user.userName
         }
+        if let like = model.totalRate {
+            self.lblNumberLike.text = "\(like)"
+        }
+        if let numberComment = model.comments?.count {
+            self.lblNumberComment.text = "\(numberComment)"
+        }
         if let displayDate = model.displayDate {
             self.lblDate.text = covertTime(dateString: displayDate)
         }
         if let content = model.content {
             self.lblTitle.text = content
         }
+            if let contenString = self.lblTitle.text {
+                if contenString.count > 400 {
+                    self.btnShowMore.isHidden = false
+                    self.lblTitle.text = "\(contenString.prefix(400))"
+                    self.showMore()
+                } else {
+                    self.btnShowMore.isHidden = true
+                }
+            }
+
         if let numberPhoto = NumberPhoto(rawValue: model.photos?.count ?? 0) {
             switch numberPhoto {
+            case .zero:
+                self.viewImage1.isHidden = false
+                self.viewImage2.isHidden = true
+                self.viewImage3.isHidden = true
+                self.showZeroImage(model: model)
+                break
             case .one:
                 self.viewImage1.isHidden = false
                 self.viewImage2.isHidden = true
@@ -86,6 +121,14 @@ class CellMain: UITableViewCell {
     }
 }
 extension CellMain {
+    func showMore() {
+        guard let contenString = self.lblTitle.text else { return }
+        let dataString = NSMutableAttributedString(string: "\(contenString) ...xem thêm")
+        let myRanger = NSRange(location: dataString.length - 8, length: 8)
+        let attrs: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+        dataString.addAttributes(attrs, range: myRanger)
+        self.lblTitle.attributedText = dataString
+    }
     func covertTime(dateString: String) -> String {
         let dateString = "\(dateString)+0000"
         let dateFormatter = DateFormatter()
@@ -98,6 +141,16 @@ extension CellMain {
             return ""
         }
     }
+    func showZeroImage(model: PostPublicModel.List) {
+        let ratio: CGFloat = CGFloat(1)
+        let bigViewWidth = UIScreen.main.bounds.width - 2 * AppConst.LEADING_TRANILING_VIEW_HEADER_CELL - 8
+        self.bigViewHeight.constant = bigViewWidth / ratio
+        let listImg: [String] = UserDataManager.shared.listImage
+        let image = listImg.randomElement() ?? ""
+        if let url = URL(string: image) {
+            self.imgMain.kf.setImage(with: url)
+        }
+    }
     func showBigImage(model: PostPublicModel.List) {
         if var heigt = model.photos?[0].imageHeight, var width = model.photos?[0].imageWidth {
             if heigt == 0 {
@@ -107,7 +160,7 @@ extension CellMain {
                 width = 1
             }
             let ratio: CGFloat = CGFloat(width) / CGFloat(heigt)
-            let bigViewWidth = UIScreen.main.bounds.width - 2 * 10 - 10
+            let bigViewWidth = UIScreen.main.bounds.width - 2 * AppConst.LEADING_TRANILING_VIEW_HEADER_CELL - 8
             self.bigViewHeight.constant = bigViewWidth / ratio
         }
         if let path = model.photos?[0].path {

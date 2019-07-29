@@ -65,6 +65,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             cell = cellTable as? CellMenu
         }
+        cell.selectionStyle = .none
         cell.lblNameMenu.text = self.arrMenuItem[indexPath.row].menuName ?? ""
         cell.imgMain.image = UIImage.init(named: "\(self.arrMenuItem[indexPath.row].imageResource ?? "")")
         return cell

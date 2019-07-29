@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danh sách bạn bè" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JG-Fo-38c">
-                            <rect key="frame" x="64" y="8" width="334" height="34"/>
+                            <rect key="frame" x="64" y="8" width="334" height="32"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -49,7 +49,8 @@
                         <constraint firstItem="1JG-Fo-38c" firstAttribute="top" secondItem="4RH-wm-1tv" secondAttribute="top" constant="8" id="Lcl-XN-jTX"/>
                         <constraint firstAttribute="height" constant="50" id="Sss-JQ-35Q"/>
                         <constraint firstAttribute="trailing" secondItem="1JG-Fo-38c" secondAttribute="trailing" constant="16" id="XjW-K0-LKy"/>
-                        <constraint firstAttribute="bottom" secondItem="1JG-Fo-38c" secondAttribute="bottom" constant="8" id="sib-9z-Gb4"/>
+                        <constraint firstItem="IWE-OW-Wae" firstAttribute="centerY" secondItem="1JG-Fo-38c" secondAttribute="centerY" id="rf2-bP-vNV"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1JG-Fo-38c" secondAttribute="bottom" constant="8" id="sib-9z-Gb4"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IWE-OW-Wae" secondAttribute="bottom" constant="4" id="tG7-Bd-rxO"/>
                         <constraint firstItem="IWE-OW-Wae" firstAttribute="leading" secondItem="4RH-wm-1tv" secondAttribute="leading" constant="16" id="yiB-Ab-D2u"/>
                     </constraints>

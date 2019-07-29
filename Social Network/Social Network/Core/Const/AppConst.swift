@@ -11,11 +11,13 @@ struct AppConst {
     
     static var IS_NEED_VERIFY_OTP = true
     
-    static let IS_USE_NONE_AUTOLAYOUT = false;
-}
-
-struct ApiKeyGoogle {
-    static let API_KEY_GOOGLE = "AIzaSyDZMNHYEdmzEnEXeHo3UEZMd9Gv6NnIAZY"
+    static let IS_USE_NONE_AUTOLAYOUT = false
+    
+    static let LEADING_TRANILING_VIEW_HEADER_CELL: CGFloat = 10
+    static let VELOCITY_END_TOP: CGFloat = -1.5
+    static let VELOCITY_END_BOT: CGFloat = 0.5
+    static let HEIGHT_HEADER_VIEW_MAX: CGFloat = 150
+    static let HEIGHT_HEADER_VIEW_MIN: CGFloat = 0
 }
 
 struct ApiConst {
@@ -29,16 +31,5 @@ struct AppGlobal {
     static var APP_DOMAIN = ""
 }
 
-enum LoginType: String {
-    case FACEBOOK = "F"
-    case ACCOUNT = "N"
-    case GOOGLE = "G"
-    case ZALO = "Z"
-}
-
-struct UserRegisterType {
-    static let Normal = "0"
-    static let Facebook = "1"
-}
 
 
