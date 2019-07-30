@@ -66,5 +66,15 @@ class CellComment: UITableViewCell {
                 }
             }
         }
+        if let photoNumber = model.photos, photoNumber.count == 0 {
+            let ratio: CGFloat = CGFloat(1)
+            let bigViewWidth = self.imgMain.frame.size.width
+            self.imageHeigt.constant = bigViewWidth / ratio
+            let listImg: [String] = UserDataManager.shared.listImage
+            let image = listImg.randomElement() ?? ""
+            if let url = URL(string: image) {
+                self.imgMain.kf.setImage(with: url)
+            }
+        }
     }
 }

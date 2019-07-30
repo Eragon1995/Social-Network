@@ -18,6 +18,7 @@ enum NumberPhoto: Int {
 
 protocol CellMainDelegate {
     func showMore(indexPath: IndexPath)
+    func showImage(indexPath: IndexPath)
 }
 
 class CellMain: UITableViewCell {
@@ -45,6 +46,9 @@ class CellMain: UITableViewCell {
     @IBAction func touchShowMore(_ sender: Any) {
         delegate.showMore(indexPath: indexPath)
     }
+    @IBAction func toucShowImage(_ sender: Any) {
+        delegate.showImage(indexPath: indexPath)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -56,7 +60,7 @@ class CellMain: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(model: PostPublicModel.List, section: Int) {
+    func configCell(model: PostPublicModel.List, section: Int, controller: String) {
         self.model = model
         self.section = section
         if let user = model.user {
@@ -80,6 +84,8 @@ class CellMain: UITableViewCell {
         if let content = model.content {
             self.lblTitle.text = content
         }
+        let controller: String = controller
+        if controller == "HomeVC" {
             if let contenString = self.lblTitle.text {
                 if contenString.count > 400 {
                     self.btnShowMore.isHidden = false
@@ -89,6 +95,8 @@ class CellMain: UITableViewCell {
                     self.btnShowMore.isHidden = true
                 }
             }
+        } else {
+        }
 
         if let numberPhoto = NumberPhoto(rawValue: model.photos?.count ?? 0) {
             switch numberPhoto {

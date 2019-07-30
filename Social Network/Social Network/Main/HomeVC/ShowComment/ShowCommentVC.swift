@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
     var model: PostPublicModel.List?
 
     @IBOutlet weak var tableView: UITableView!
@@ -22,15 +22,36 @@ class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
-        dump(model)
+        self.tabBarController?.tabBar.isHidden = true
         self.tableView.reloadData()
     }
     
+    func showImage(indexPath: IndexPath) {
+        var listUrl: [String] = []
+        if let listPhoto = self.model?.photos, listPhoto.count != 0 {
+            for i in listPhoto {
+                if let url = i.path {
+                    listUrl.append(url)
+                }
+            }
+            let vc = ShowImageVC.init(nibName: "ShowImageVC", bundle: nil)
+            vc.listImage = listUrl
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if let listPhoto = self.model?.photos, listPhoto.count == 0 {
+            let listUrlRandom = UserDataManager.shared.listImage
+            let url = listUrlRandom.randomElement() ?? ""
+            listUrl.append(url)
+            let vc = ShowImageVC.init(nibName: "ShowImageVC", bundle: nil)
+            vc.listImage = listUrl
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    func showMore(indexPath: IndexPath) {
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("LEU LEU \(self.model?.comments?.count ?? 0 + 1)")
         let count = self.model?.comments?.count ?? 0 + 1
         if count != 0 {
             return self.model?.comments?.count ?? 0 + 1
@@ -48,8 +69,10 @@ class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
                 cell = cellTable as? CellMain
             }
             cell.selectionStyle = .none
+            cell.delegate = self
+            cell.indexPath = indexPath
             let section = indexPath.row
-            cell.configCell(model: self.model!, section: section)
+            cell.configCell(model: self.model!, section: section, controller: "ShowCommentVC")
             return cell
         } else {
             let cellTable = tableView.dequeueReusableCell(withIdentifier: "CellComment")

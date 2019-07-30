@@ -11,6 +11,26 @@ import UIKit
 import Kingfisher
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
+    func showImage(indexPath: IndexPath) {
+        var listUrl: [String] = []
+        if let listPhoto = self.listPostPublic?.data?.list?[indexPath.row].photos, listPhoto.count != 0 {
+            for i in listPhoto {
+                if let url = i.path {
+                    listUrl.append(url)
+                }
+            }
+            let vc = ShowImageVC.init(nibName: "ShowImageVC", bundle: nil)
+            vc.listImage = listUrl
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else if let listPhoto = self.listPostPublic?.data?.list?[indexPath.row].photos, listPhoto.count == 0 {
+            let listUrlRandom = UserDataManager.shared.listImage
+            let url = listUrlRandom.randomElement() ?? ""
+            listUrl.append(url)
+            let vc = ShowImageVC.init(nibName: "ShowImageVC", bundle: nil)
+            vc.listImage = listUrl
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func showMore(indexPath: IndexPath) {
         let model = self.listPostPublic?.data?.list?[indexPath.row]
         let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
@@ -40,14 +60,15 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
         cell.indexPath = indexPath
         let section = indexPath.row
         if let data = self.listPostPublic?.data?.list?[section] {
-            cell.configCell(model: data, section: section)
+            cell.configCell(model: data, section: section, controller: "HomeVC")
         }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = self.listPostPublic?.data?.list?[indexPath.row]
-        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
-        vc.model = model
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let model = self.listPostPublic?.data?.list?[indexPath.row]
+//        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
+//        vc.model = model
+//        print("LEU LEU \(model?.photos?.count ?? 0)")
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

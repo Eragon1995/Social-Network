@@ -22,6 +22,10 @@
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
 		C80B404C22EECE8600B6A613 /* ShowCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */; };
 		C80B404D22EECE8600B6A613 /* ShowCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */; };
+		C81A4CC022EFE6D700352CD1 /* ShowImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81A4CBE22EFE6D700352CD1 /* ShowImageVC.swift */; };
+		C81A4CC122EFE6D700352CD1 /* ShowImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81A4CBF22EFE6D700352CD1 /* ShowImageVC.xib */; };
+		C81A4CC522EFE8A100352CD1 /* CellShowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81A4CC322EFE8A100352CD1 /* CellShowImage.swift */; };
+		C81A4CC622EFE8A100352CD1 /* CellShowImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81A4CC422EFE8A100352CD1 /* CellShowImage.xib */; };
 		C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34922E954D40039CD35 /* CellListFriend.swift */; };
 		C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */ = {isa = PBXBuildFile; fileRef = C81BA34A22E954D40039CD35 /* CellListFriend.xib */; };
 		C81BA35022E957EB0039CD35 /* CellChat2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81BA34E22E957EB0039CD35 /* CellChat2.swift */; };
@@ -125,6 +129,10 @@
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentVC.swift; sourceTree = "<group>"; };
 		C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCommentVC.xib; sourceTree = "<group>"; };
+		C81A4CBE22EFE6D700352CD1 /* ShowImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageVC.swift; sourceTree = "<group>"; };
+		C81A4CBF22EFE6D700352CD1 /* ShowImageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowImageVC.xib; sourceTree = "<group>"; };
+		C81A4CC322EFE8A100352CD1 /* CellShowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellShowImage.swift; sourceTree = "<group>"; };
+		C81A4CC422EFE8A100352CD1 /* CellShowImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellShowImage.xib; sourceTree = "<group>"; };
 		C81BA34922E954D40039CD35 /* CellListFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellListFriend.swift; sourceTree = "<group>"; };
 		C81BA34A22E954D40039CD35 /* CellListFriend.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellListFriend.xib; sourceTree = "<group>"; };
 		C81BA34E22E957EB0039CD35 /* CellChat2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellChat2.swift; sourceTree = "<group>"; };
@@ -307,6 +315,25 @@
 			path = ShowComment;
 			sourceTree = "<group>";
 		};
+		C81A4CBD22EFE6B400352CD1 /* ShowImage */ = {
+			isa = PBXGroup;
+			children = (
+				C81A4CC222EFE87A00352CD1 /* CellShowImage */,
+				C81A4CBE22EFE6D700352CD1 /* ShowImageVC.swift */,
+				C81A4CBF22EFE6D700352CD1 /* ShowImageVC.xib */,
+			);
+			path = ShowImage;
+			sourceTree = "<group>";
+		};
+		C81A4CC222EFE87A00352CD1 /* CellShowImage */ = {
+			isa = PBXGroup;
+			children = (
+				C81A4CC322EFE8A100352CD1 /* CellShowImage.swift */,
+				C81A4CC422EFE8A100352CD1 /* CellShowImage.xib */,
+			);
+			path = CellShowImage;
+			sourceTree = "<group>";
+		};
 		C81BA34822E954A70039CD35 /* CellListFriend */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +372,7 @@
 		C8383B1B22D710BE00E897BE /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				C81A4CBD22EFE6B400352CD1 /* ShowImage */,
 				C80B404922EECE6600B6A613 /* ShowComment */,
 				C804177C22DC752C001A9BB5 /* CellComment */,
 				C8229E4322DC21480045A1C2 /* CellMain */,
@@ -688,6 +716,7 @@
 				DF14338622D5C22C000BAEF5 /* LoadMoreFooterView.xib in Resources */,
 				C82C0C9322DECEF8001C2D8D /* GoogleService-Info.plist in Resources */,
 				DF6747A822C07FB200735AC9 /* LaunchScreen.storyboard in Resources */,
+				C81A4CC122EFE6D700352CD1 /* ShowImageVC.xib in Resources */,
 				DF14337222D5C22C000BAEF5 /* LoadingView.xib in Resources */,
 				DF14336F22D5C22C000BAEF5 /* AlertConfirmViewController.xib in Resources */,
 				C804178022DC7543001A9BB5 /* CellComment.xib in Resources */,
@@ -703,6 +732,7 @@
 				C8047F1D22E05AB500FC5799 /* ListFriendVC.xib in Resources */,
 				DF14336E22D5C22C000BAEF5 /* AlertViewController.xib in Resources */,
 				C81BA35122E957EB0039CD35 /* CellChat2.xib in Resources */,
+				C81A4CC622EFE8A100352CD1 /* CellShowImage.xib in Resources */,
 				C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,6 +832,7 @@
 				DF14336122D5C22C000BAEF5 /* UIBoldLabel.swift in Sources */,
 				C8C2208E22E59AC700D85639 /* ProfileModel.swift in Sources */,
 				DF14338822D5C22C000BAEF5 /* UrlConst.swift in Sources */,
+				C81A4CC022EFE6D700352CD1 /* ShowImageVC.swift in Sources */,
 				DF14334C22D5C22C000BAEF5 /* UIImageView+Extension.swift in Sources */,
 				DF14335A22D5C22C000BAEF5 /* UITapgestureRecognizer.swift in Sources */,
 				C804214322D898E1004562C1 /* HomeVCExtention + TableView.swift in Sources */,
@@ -834,6 +865,7 @@
 				DF14338922D5C22C000BAEF5 /* AppConst.swift in Sources */,
 				DF14335122D5C22C000BAEF5 /* Collection+Extension.swift in Sources */,
 				DF14335D22D5C22C000BAEF5 /* LocationManager.swift in Sources */,
+				C81A4CC522EFE8A100352CD1 /* CellShowImage.swift in Sources */,
 				C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */,
 				C8229E4222DC18760045A1C2 /* LaunchVC.swift in Sources */,
 				C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */,
