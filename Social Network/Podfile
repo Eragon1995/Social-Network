@@ -30,8 +30,7 @@ target 'Social Network' do
 
   pod 'IQKeyboardManagerSwift'
   
-  #AccountKit
-  pod 'AccountKit'
+  pod 'BSImagePicker'
   
   #Side Menu
   pod 'SideMenu'

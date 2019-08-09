@@ -9,31 +9,54 @@
 import Foundation
 
 class ProfileModel: Codable {
-    let status: Int
-    let data: DataClass
-    let message: String
+    let status: Int?
+    let data: DataClass?
+    let message: String?
     
-    init(status: Int, data: DataClass, message: String) {
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case data = "data"
+        case message = "message"
+    }
+    
+    init(status: Int?, data: DataClass?, message: String?) {
         self.status = status
         self.data = data
         self.message = message
     }
     class DataClass: Codable {
-        let id: Int
-        let userName, email, phone, birthday: String
-        let fbID, fullName: String
-        let star, exp, level: Int
-        let createdAt, showName, showPhone, showBirthday: String
-        let expNextLevel, postCount, bankAccountNumber: Int
-        let bankAccountName, bankAccountBank, bankAccountBranch: String
+        let id: Int?
+        let userName: String?
+        let email: String?
+        let phone: String?
+        let birthday: String?
+        let fbID: String?
+        let fullName: String?
+        let star: Int?
+        let exp: Int?
+        let level: Int?
+        let createdAt: String?
+        let showName: Int?
+        let showPhone: Int?
+        let showBirthday: Int?
+        let expNextLevel: Int?
+        let postCount: Int?
+        let bankAccountNumber: Int?
+        let bankAccountName: String?
+        let bankAccountBank: String?
+        let bankAccountBranch: String?
         
         enum CodingKeys: String, CodingKey {
-            case id
+            case id = "id"
             case userName = "user_name"
-            case email, phone, birthday
+            case email = "email"
+            case phone = "phone"
+            case birthday = "birthday"
             case fbID = "fb_id"
             case fullName = "full_name"
-            case star, exp, level
+            case star = "star"
+            case exp = "exp"
+            case level = "level"
             case createdAt = "created_at"
             case showName = "show_name"
             case showPhone = "show_phone"
@@ -46,7 +69,7 @@ class ProfileModel: Codable {
             case bankAccountBranch = "bank_account_branch"
         }
         
-        init(id: Int, userName: String, email: String, phone: String, birthday: String, fbID: String, fullName: String, star: Int, exp: Int, level: Int, createdAt: String, showName: String, showPhone: String, showBirthday: String, expNextLevel: Int, postCount: Int, bankAccountNumber: Int, bankAccountName: String, bankAccountBank: String, bankAccountBranch: String) {
+        init(id: Int?, userName: String?, email: String?, phone: String?, birthday: String?, fbID: String?, fullName: String?, star: Int?, exp: Int?, level: Int?, createdAt: String?, showName: Int?, showPhone: Int?, showBirthday: Int?, expNextLevel: Int?, postCount: Int?, bankAccountNumber: Int?, bankAccountName: String?, bankAccountBank: String?, bankAccountBranch: String?) {
             self.id = id
             self.userName = userName
             self.email = email
@@ -69,7 +92,7 @@ class ProfileModel: Codable {
             self.bankAccountBranch = bankAccountBranch
         }
     }
+
 }
 
 // MARK: - DataClass
-

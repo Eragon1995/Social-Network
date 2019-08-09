@@ -33,6 +33,13 @@ class JsonParserManager {
         }
     return nil
     }
+    static func getPostUser(jsonString: String) -> MyPostModel? {
+        if let jsonData = jsonString.data(using: .utf8) {
+            let data = try? JSONDecoder().decode(MyPostModel.self, from: jsonData)
+            return data;
+        }
+        return nil
+    }
     static func imageRandom(jsonString: String) -> RandomImage? {
         if let jsonData = jsonString.data(using: .utf8) {
             let data = try? JSONDecoder().decode(RandomImage.self, from: jsonData)

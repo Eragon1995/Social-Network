@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import AccountKit
 import Firebase
 
 
 
-class AuthenticationVC: BaseViewController, AKFViewControllerDelegate {
+class AuthenticationVC: BaseViewController {
 
     @IBOutlet weak var buttonRegister: UIButton!
     @IBOutlet weak var buttonLogin: UIButton!

@@ -20,5 +20,7 @@ enum URLConst {
     static let PROFILE_URL = ApiConst.BASE_URL + "profile"
     //UploadAvatar
     static let UPLOAD_AVATAR_URL = ApiConst.BASE_URL + "profile/avatar/upload"
+    ///folow user
+    static let FOLOW_USER_URL = ApiConst.BASE_URL + "post/list/follow"
 }
 

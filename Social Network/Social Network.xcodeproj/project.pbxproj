@@ -45,6 +45,7 @@
 		C8C2208822E5952400D85639 /* ProfileRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2208722E5952400D85639 /* ProfileRegisterVC.swift */; };
 		C8C2208A22E597AB00D85639 /* UpdateProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2208922E597AB00D85639 /* UpdateProfileModel.swift */; };
 		C8C2208E22E59AC700D85639 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C2208D22E59AC700D85639 /* ProfileModel.swift */; };
+		DF0E122622FC36890002EF3C /* MyPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0E122522FC36890002EF3C /* MyPostModel.swift */; };
 		DF14334B22D5C22C000BAEF5 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1432F922D5C22A000BAEF5 /* UIApplication+Extension.swift */; };
 		DF14334C22D5C22C000BAEF5 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1432FA22D5C22A000BAEF5 /* UIImageView+Extension.swift */; };
 		DF14334D22D5C22C000BAEF5 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1432FB22D5C22A000BAEF5 /* Label.swift */; };
@@ -152,6 +153,7 @@
 		C8C2208722E5952400D85639 /* ProfileRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterVC.swift; sourceTree = "<group>"; };
 		C8C2208922E597AB00D85639 /* UpdateProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileModel.swift; sourceTree = "<group>"; };
 		C8C2208D22E59AC700D85639 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		DF0E122522FC36890002EF3C /* MyPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
 		DF1432F922D5C22A000BAEF5 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		DF1432FA22D5C22A000BAEF5 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		DF1432FB22D5C22A000BAEF5 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				C8047F1E22E0615F00FC5799 /* UserModel.swift */,
 				C8C2208922E597AB00D85639 /* UpdateProfileModel.swift */,
 				C8C2208D22E59AC700D85639 /* ProfileModel.swift */,
+				DF0E122522FC36890002EF3C /* MyPostModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,7 +666,6 @@
 				DF67479722C07FB100735AC9 /* Frameworks */,
 				DF67479822C07FB100735AC9 /* Resources */,
 				B47C7F884FDB195CA0A15265 /* [CP] Embed Pods Frameworks */,
-				17F357C81C27C793B396BAE2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -740,23 +742,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17F357C81C27C793B396BAE2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Social Network/Pods-Social Network-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Social Network/Pods-Social Network-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Social Network/Pods-Social Network-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A4AD75E45B9962B38DC362A3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -869,6 +854,7 @@
 				C81BA34B22E954D40039CD35 /* CellListFriend.swift in Sources */,
 				C8229E4222DC18760045A1C2 /* LaunchVC.swift in Sources */,
 				C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */,
+				DF0E122622FC36890002EF3C /* MyPostModel.swift in Sources */,
 				C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */,
 				DF14336622D5C22C000BAEF5 /* JSONParser.swift in Sources */,
 				DF14336C22D5C22C000BAEF5 /* SimplePopoverViewController.swift in Sources */,

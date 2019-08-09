@@ -15,8 +15,8 @@ extension HomeVC: UISideMenuNavigationControllerDelegate {
         let menu = MenuVC.init(nibName: "MenuVC", bundle: nil)
         let menuleftNavigationController = UISideMenuNavigationController(rootViewController: menu)
         menuleftNavigationController.isNavigationBarHidden = true
-        SideMenuManager.default.menuLeftNavigationController = menuleftNavigationController
-        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+        SideMenuManager.default.leftMenuNavigationController = menuleftNavigationController
+        SideMenuManager.default.menuPresentMode = .viewSlideOutMenuIn
         SideMenuManager.default.menuWidth = 280
         SideMenuManager.default.menuAnimationPresentDuration = 0.7
         SideMenuManager.default.menuAnimationFadeStrength = 0.1

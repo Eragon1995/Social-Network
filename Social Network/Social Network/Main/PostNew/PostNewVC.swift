@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import BSImagePicker
+import BSImageView
+import Photos
 
 class PostNewVC: BaseViewController {
 
@@ -18,6 +21,22 @@ class PostNewVC: BaseViewController {
 //        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
 //        activityViewController.popoverPresentationController?.sourceView = self.view
 //        self.present(activityViewController, animated: true, completion: nil)
+        var SelectedAssets = [PHAsset]()
+        
+        let vc = BSImagePickerViewController()
+        vc.maxNumberOfSelections = 3
+        vc.takePhotos = true
+        bs_presentImagePickerController(vc, animated: true,
+                                        select: { (asset: PHAsset) -> Void in
+                                            print("Selected: 111111\(asset)")
+        }, deselect: { (asset: PHAsset) -> Void in
+            print("Deselected: 222222\(asset)")
+        }, cancel: { (assets: [PHAsset]) -> Void in
+            print("Cancel: 33333\(assets)")
+        }, finish: { (assets: [PHAsset]) -> Void in
+            print("Finish: 4444\(assets)")
+            print(assets.count)
+        }, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

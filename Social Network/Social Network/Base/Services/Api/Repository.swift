@@ -20,6 +20,12 @@ class Repository: BaseRepository {
         params["password"] = password
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func getProfilePost(userId: Int, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.FOLOW_USER_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["userId"] = userId
+        return self.callGetMethod(url: url, parameters: params, onComplete: callBack)
+    }
     func postPublic( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
         let url = "\(URLConst.POST_PUBLIC_URL)"
         let params = Dictionary<String, Any>.init()

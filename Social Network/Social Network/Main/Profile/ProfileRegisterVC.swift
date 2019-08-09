@@ -223,10 +223,10 @@ class ProfileRegisterVC: BaseViewController, UIImagePickerControllerDelegate, UI
             self.hideLoading()
             if response.isSuccess() {
                 let data = JsonParserManager.profile(jsonString: response.rawData ?? "")
-                self.lblFullName.text = data?.data.fullName ?? ""
-                self.lblUserName.text = data?.data.userName ?? ""
-                self.lblBirthDay.text = data?.data.birthday ?? ""
-                self.lblNumberPhone.text = data?.data.phone ?? ""
+                self.lblFullName.text = data?.data?.fullName ?? ""
+                self.lblUserName.text = data?.data?.userName ?? ""
+                self.lblBirthDay.text = data?.data?.birthday ?? ""
+                self.lblNumberPhone.text = data?.data?.phone ?? ""
             } else {
                 self.showAlert(message: response.message)
             }
