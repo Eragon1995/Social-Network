@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyPostVC" customModule="Social_Network" customModuleProvider="target">
+            <connections>
+                <outlet property="headerView" destination="uZJ-ZV-dh6" id="qGf-fR-aLm"/>
+                <outlet property="headerViewTop" destination="LPl-lt-Hzr" id="htJ-m2-9MQ"/>
+                <outlet property="tableView" destination="u5g-rk-fWW" id="zGf-4T-fbw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="MyPostVC" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZJ-ZV-dh6">
+                    <rect key="frame" x="0.0" y="44" width="414" height="75"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-Xo-7Zt">
+                            <rect key="frame" x="16" y="18" width="39" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Bzc-Xo-7Zt" secondAttribute="height" multiplier="1:1" id="20j-Wm-Znc"/>
+                            </constraints>
+                            <state key="normal" title="Menu">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="touchMenu:" destination="-1" eventType="touchUpInside" id="FjX-b6-6mq"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.66666668650000005" green="0.32226743940000002" blue="0.43461429969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="centerY" secondItem="uZJ-ZV-dh6" secondAttribute="centerY" id="FD2-VW-L53"/>
+                        <constraint firstAttribute="height" constant="75" id="LPl-lt-Hzr"/>
+                        <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="leading" secondItem="uZJ-ZV-dh6" secondAttribute="leading" constant="16" id="cwz-Iz-thg"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bzc-Xo-7Zt" secondAttribute="bottom" constant="8" id="sH6-Jf-Vpt"/>
+                        <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uZJ-ZV-dh6" secondAttribute="top" constant="8" id="tRG-Dn-M5X"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5g-rk-fWW">
+                    <rect key="frame" x="0.0" y="119" width="414" height="743"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uZJ-ZV-dh6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4cj-bS-mkH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u5g-rk-fWW" secondAttribute="bottom" id="Aal-qy-gJ3"/>
+                <constraint firstItem="uZJ-ZV-dh6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JbE-n9-K6q"/>
+                <constraint firstItem="u5g-rk-fWW" firstAttribute="top" secondItem="uZJ-ZV-dh6" secondAttribute="bottom" id="Nih-mW-CgK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uZJ-ZV-dh6" secondAttribute="trailing" id="Ppi-g6-B4Q"/>
+                <constraint firstAttribute="trailing" secondItem="u5g-rk-fWW" secondAttribute="trailing" id="WBg-6P-NG4"/>
+                <constraint firstItem="u5g-rk-fWW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aBX-ur-ebo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
+        </view>
+    </objects>
+</document>

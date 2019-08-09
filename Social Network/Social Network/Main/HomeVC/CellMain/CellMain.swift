@@ -40,6 +40,7 @@ class CellMain: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
     var model: PostPublicModel.List?
+    var modelMyPost: MyPostModel.Datum?
     var section = -1
     @IBAction func touchLike(_ sender: Any) {
     }
@@ -104,6 +105,73 @@ class CellMain: UITableViewCell {
                 self.viewImage1.isHidden = false
                 self.viewImage2.isHidden = true
                 self.viewImage3.isHidden = true
+                self.showZeroImage1(model: model)
+                break
+            case .one:
+                self.viewImage1.isHidden = false
+                self.viewImage2.isHidden = true
+                self.viewImage3.isHidden = true
+                self.showBigImage1(model: model)
+                break
+            case .two:
+                self.viewImage1.isHidden = true
+                self.viewImage2.isHidden = false
+                self.viewImage3.isHidden = false
+                self.showTwoImage1(model: model)
+                break
+            case .three:
+                self.viewImage1.isHidden = false
+                self.viewImage2.isHidden = false
+                self.viewImage3.isHidden = false
+                self.showThreeImage1(model: model)
+                break
+            }
+        }
+    }
+    func configCellMyPost(model: MyPostModel.Datum, section: Int, controller: String) {
+        self.modelMyPost = model
+        self.section = section
+        if let user = model.user {
+            if let avtUrl = user.avatarURL, avtUrl != "" {
+                let url = URL(string: avtUrl)
+                self.imgAvatar.kf.setImage(with: url)
+            } else {
+                self.imgAvatar.image = UIImage(named: "defaultAvt")
+            }
+            self.lblName.text = user.userName
+        }
+        if let like = model.totalRate {
+            self.lblNumberLike.text = "\(like)"
+        }
+        if let numberComment = model.comments?.count {
+            self.lblNumberComment.text = "\(numberComment)"
+        }
+        if let displayDate = model.displayDate {
+            self.lblDate.text = covertTime(dateString: displayDate)
+        }
+        if let content = model.content {
+            self.lblTitle.text = content
+        }
+        let controller: String = controller
+        if controller == "HomeVC" {
+            if let contenString = self.lblTitle.text {
+                if contenString.count > 400 {
+                    self.btnShowMore.isHidden = false
+                    self.lblTitle.text = "\(contenString.prefix(400))"
+                    self.showMore()
+                } else {
+                    self.btnShowMore.isHidden = true
+                }
+            }
+        } else {
+        }
+        
+        if let numberPhoto = NumberPhoto(rawValue: model.photos?.count ?? 0) {
+            switch numberPhoto {
+            case .zero:
+                self.viewImage1.isHidden = false
+                self.viewImage2.isHidden = true
+                self.viewImage3.isHidden = true
                 self.showZeroImage(model: model)
                 break
             case .one:
@@ -149,7 +217,7 @@ extension CellMain {
             return ""
         }
     }
-    func showZeroImage(model: PostPublicModel.List) {
+    func showZeroImage(model: MyPostModel.Datum) {
         let ratio: CGFloat = CGFloat(1)
         let bigViewWidth = UIScreen.main.bounds.width - 2 * AppConst.LEADING_TRANILING_VIEW_HEADER_CELL - 8
         self.bigViewHeight.constant = bigViewWidth / ratio
@@ -159,7 +227,7 @@ extension CellMain {
             self.imgMain.kf.setImage(with: url)
         }
     }
-    func showBigImage(model: PostPublicModel.List) {
+    func showBigImage(model: MyPostModel.Datum) {
         if var heigt = model.photos?[0].imageHeight, var width = model.photos?[0].imageWidth {
             if heigt == 0 {
                 heigt = 1
@@ -182,7 +250,7 @@ extension CellMain {
             }
         }
     }
-    func showTwoImage(model: PostPublicModel.List) {
+    func showTwoImage(model: MyPostModel.Datum) {
         if let path1 = model.photos?[0].path {
             if let img = Utils.shared.getCachedImage(urlString: path1) {
                 //setImage
@@ -204,8 +272,87 @@ extension CellMain {
             }
         }
     }
-    func showThreeImage(model: PostPublicModel.List) {
+    func showThreeImage(model: MyPostModel.Datum) {
         self.showBigImage(model: model)
+        if let path1 = model.photos?[1].path {
+            if let img = Utils.shared.getCachedImage(urlString: path1) {
+                //setImage
+                self.img2.image = img
+            } else {
+                if let url1 = URL(string: path1) {
+                    self.img2.kf.setImage(with: url1)
+                }
+            }
+        }
+        if let path2 = model.photos?[2].path {
+            if let img = Utils.shared.getCachedImage(urlString: path2) {
+                //setImage
+                self.img3.image = img
+            } else {
+                if let url2 = URL(string: path2) {
+                    self.img2.kf.setImage(with: url2)
+                }
+            }
+        }
+    }
+    
+    func showZeroImage1(model: PostPublicModel.List) {
+        let ratio: CGFloat = CGFloat(1)
+        let bigViewWidth = UIScreen.main.bounds.width - 2 * AppConst.LEADING_TRANILING_VIEW_HEADER_CELL - 8
+        self.bigViewHeight.constant = bigViewWidth / ratio
+        let listImg: [String] = UserDataManager.shared.listImage
+        let image = listImg.randomElement() ?? ""
+        if let url = URL(string: image) {
+            self.imgMain.kf.setImage(with: url)
+        }
+    }
+    func showBigImage1(model: PostPublicModel.List) {
+        if var heigt = model.photos?[0].imageHeight, var width = model.photos?[0].imageWidth {
+            if heigt == 0 {
+                heigt = 1
+            }
+            if width == 0 {
+                width = 1
+            }
+            let ratio: CGFloat = CGFloat(width) / CGFloat(heigt)
+            let bigViewWidth = UIScreen.main.bounds.width - 2 * AppConst.LEADING_TRANILING_VIEW_HEADER_CELL - 8
+            self.bigViewHeight.constant = bigViewWidth / ratio
+        }
+        if let path = model.photos?[0].path {
+            if let img = Utils.shared.getCachedImage(urlString: path) {
+                //set Image
+                self.imgMain.image = img
+            } else {
+                if let url = URL(string: path) {
+                    self.imgMain.kf.setImage(with: url)
+                }
+            }
+        }
+    }
+    func showTwoImage1(model: PostPublicModel.List) {
+        if let path1 = model.photos?[0].path {
+            if let img = Utils.shared.getCachedImage(urlString: path1) {
+                //setImage
+                self.img2.image = img
+            } else {
+                if let url1 = URL(string: path1) {
+                    self.img2.kf.setImage(with: url1)
+                }
+            }
+        }
+        if let path2 = model.photos?[1].path {
+            if let img = Utils.shared.getCachedImage(urlString: path2) {
+                //setImage
+                self.img3.image = img
+            } else {
+                if let url2 = URL(string: path2) {
+                    self.img2.kf.setImage(with: url2)
+                }
+            }
+        }
+    }
+    func showThreeImage1(model: PostPublicModel.List) {
+        self.showBigImage1(model: model)
         if let path1 = model.photos?[1].path {
             if let img = Utils.shared.getCachedImage(urlString: path1) {
                 //setImage

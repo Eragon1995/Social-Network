@@ -46,7 +46,7 @@ class MenuVC: BaseViewController  {
                 let data = JsonParserManager.profile(jsonString: response.rawData ?? "")
                 dump(data)
                 self.lblName.text = data?.data?.fullName ?? ""
-                self.lblEmail.text = data?.data?.email ?? ""
+                self.lblEmail.text = data?.data?.userName ?? ""
                 self.userId = data?.data?.id ?? 0
                 if let avtUrl = UserDataManager.shared.getLinkAvatar(), avtUrl != "" {
                     if let url = URL(string: avtUrl) {
@@ -86,7 +86,9 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
         let menuItem = self.arrMenuItem[indexPath.row]
         switch menuItem.id {
         case MenuModel.MENU_1:
-            print("Trang chu")
+            let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            let vc = mainSb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_2:
             let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             let vc = mainSb.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
@@ -94,9 +96,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
             self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_3:
             print("Selected \(indexPath.row)")
-            let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-            let vc = mainSb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-            vc.controller = "user"
+            let vc = MyPostVC.init(nibName: "MyPostVC", bundle: nil)
             vc.userId = self.userId
             self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_4:

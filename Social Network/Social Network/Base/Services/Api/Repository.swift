@@ -23,7 +23,7 @@ class Repository: BaseRepository {
     func getProfilePost(userId: Int, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
         let url = "\(URLConst.FOLOW_USER_URL)"
         var params = Dictionary<String, Any>.init()
-        params["userId"] = userId
+        params["user_id"] = userId
         return self.callGetMethod(url: url, parameters: params, onComplete: callBack)
     }
     func postPublic( callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {

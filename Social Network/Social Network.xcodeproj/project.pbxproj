@@ -20,6 +20,10 @@
 		C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */; };
 		C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */; };
 		C806CDC022D5D528002E16F4 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C806CDBF22D5D528002E16F4 /* RegisterModel.swift */; };
+		C80B027622FD706E00928713 /* MyPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B027422FD706E00928713 /* MyPostVC.swift */; };
+		C80B027722FD706E00928713 /* MyPostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80B027522FD706E00928713 /* MyPostVC.xib */; };
+		C80B027922FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B027822FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift */; };
+		C80B027B22FD7DD300928713 /* MyPostVCExtention + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B027A22FD7DD300928713 /* MyPostVCExtention + TableView.swift */; };
 		C80B404C22EECE8600B6A613 /* ShowCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */; };
 		C80B404D22EECE8600B6A613 /* ShowCommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */; };
 		C81A4CC022EFE6D700352CD1 /* ShowImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81A4CBE22EFE6D700352CD1 /* ShowImageVC.swift */; };
@@ -128,6 +132,10 @@
 		C8047F2122E06BB700FC5799 /* ChatHistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHistoryVC.swift; sourceTree = "<group>"; };
 		C8047F2222E06BB700FC5799 /* ChatHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHistoryVC.xib; sourceTree = "<group>"; };
 		C806CDBF22D5D528002E16F4 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		C80B027422FD706E00928713 /* MyPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostVC.swift; sourceTree = "<group>"; };
+		C80B027522FD706E00928713 /* MyPostVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPostVC.xib; sourceTree = "<group>"; };
+		C80B027822FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtentionMyPostVC + UISideMenu.swift"; sourceTree = "<group>"; };
+		C80B027A22FD7DD300928713 /* MyPostVCExtention + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPostVCExtention + TableView.swift"; sourceTree = "<group>"; };
 		C80B404A22EECE8600B6A613 /* ShowCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCommentVC.swift; sourceTree = "<group>"; };
 		C80B404B22EECE8600B6A613 /* ShowCommentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowCommentVC.xib; sourceTree = "<group>"; };
 		C81A4CBE22EFE6D700352CD1 /* ShowImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageVC.swift; sourceTree = "<group>"; };
@@ -309,6 +317,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C80B027322FD704600928713 /* MyPostVc */ = {
+			isa = PBXGroup;
+			children = (
+				C80B027422FD706E00928713 /* MyPostVC.swift */,
+				C80B027522FD706E00928713 /* MyPostVC.xib */,
+				C80B027822FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift */,
+				C80B027A22FD7DD300928713 /* MyPostVCExtention + TableView.swift */,
+			);
+			path = MyPostVc;
+			sourceTree = "<group>";
+		};
 		C80B404922EECE6600B6A613 /* ShowComment */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +408,7 @@
 		C8383B1E22D710FA00E897BE /* MenuVC */ = {
 			isa = PBXGroup;
 			children = (
+				C80B027322FD704600928713 /* MyPostVc */,
 				C8047F2022E06B9D00FC5799 /* ChatHistory */,
 				C8047F1922E05A3900FC5799 /* ListFriend */,
 				C8047F1822E05A2200FC5799 /* Profile */,
@@ -728,6 +748,7 @@
 				C8383B2722D7127500E897BE /* CellMenu.xib in Resources */,
 				DF14337422D5C22C000BAEF5 /* FormatLoadingView.xib in Resources */,
 				C8383B2222D7111800E897BE /* MenuVC.xib in Resources */,
+				C80B027722FD706E00928713 /* MyPostVC.xib in Resources */,
 				DF6747A322C07FB100735AC9 /* Main.storyboard in Resources */,
 				C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */,
 				DF14336A22D5C22C000BAEF5 /* SimplePopoverCell.xib in Resources */,
@@ -786,6 +807,7 @@
 			files = (
 				C81BA35022E957EB0039CD35 /* CellChat2.swift in Sources */,
 				DF14336522D5C22C000BAEF5 /* BaseView.swift in Sources */,
+				C80B027622FD706E00928713 /* MyPostVC.swift in Sources */,
 				C8047F2322E06BB700FC5799 /* ChatHistoryVC.swift in Sources */,
 				DF14337D22D5C22C000BAEF5 /* ImageLoader.swift in Sources */,
 				C804213D22D89003004562C1 /* PostPublicModel.swift in Sources */,
@@ -858,12 +880,14 @@
 				C804214122D89350004562C1 /* ExtentionHomeVC + UISideMenu.swift in Sources */,
 				DF14336622D5C22C000BAEF5 /* JSONParser.swift in Sources */,
 				DF14336C22D5C22C000BAEF5 /* SimplePopoverViewController.swift in Sources */,
+				C80B027B22FD7DD300928713 /* MyPostVCExtention + TableView.swift in Sources */,
 				DF14337022D5C22C000BAEF5 /* AlertViewController.swift in Sources */,
 				DF14337E22D5C22C000BAEF5 /* TextSize.swift in Sources */,
 				DF14335722D5C22C000BAEF5 /* UIResponder.swift in Sources */,
 				DF14336D22D5C22C000BAEF5 /* SimplePopoverCell.swift in Sources */,
 				DF14337C22D5C22C000BAEF5 /* BaseRepository.swift in Sources */,
 				DF67479E22C07FB100735AC9 /* AppDelegate.swift in Sources */,
+				C80B027922FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift in Sources */,
 				DF14335C22D5C22C000BAEF5 /* AppVariable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

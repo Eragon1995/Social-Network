@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="130"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lj1-dl-0Q2">
-                            <rect key="frame" x="16" y="17" width="96" height="96"/>
+                            <rect key="frame" x="8" y="17" width="96" height="96"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="lj1-dl-0Q2" secondAttribute="height" multiplier="1:1" id="Hvl-PR-g4Y"/>
                                 <constraint firstAttribute="width" constant="96" id="rAx-Ni-iRo"/>
@@ -40,21 +40,21 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVa-6b-URO">
-                            <rect key="frame" x="128" y="28.5" width="270" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <rect key="frame" x="112" y="34.5" width="286" height="17.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afF-d8-4Kq">
-                            <rect key="frame" x="128" y="66.5" width="270" height="1"/>
+                            <rect key="frame" x="112" y="60" width="286" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="pkH-aX-vJA"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNh-nS-mrh">
-                            <rect key="frame" x="128" y="75.5" width="270" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="112" y="69" width="286" height="17.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -69,21 +69,21 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="64e-N2-JDm"/>
-                        <constraint firstItem="jVa-6b-URO" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="16" id="9zM-IR-CfX"/>
+                        <constraint firstItem="jVa-6b-URO" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="8" id="9zM-IR-CfX"/>
                         <constraint firstItem="5BX-M5-z0X" firstAttribute="leading" secondItem="OpL-RW-dEx" secondAttribute="leading" id="B5y-Un-46P"/>
                         <constraint firstItem="JNh-nS-mrh" firstAttribute="top" secondItem="afF-d8-4Kq" secondAttribute="bottom" constant="8" id="EHu-ce-Mrd"/>
-                        <constraint firstItem="JNh-nS-mrh" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="16" id="FdP-mg-Sal"/>
+                        <constraint firstItem="JNh-nS-mrh" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="8" id="FdP-mg-Sal"/>
                         <constraint firstAttribute="trailing" secondItem="jVa-6b-URO" secondAttribute="trailing" constant="16" id="GI0-1h-h37"/>
                         <constraint firstAttribute="bottom" secondItem="5BX-M5-z0X" secondAttribute="bottom" id="Hie-fr-QoQ"/>
                         <constraint firstAttribute="trailing" secondItem="5BX-M5-z0X" secondAttribute="trailing" id="I6o-gR-nA2"/>
                         <constraint firstItem="lj1-dl-0Q2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OpL-RW-dEx" secondAttribute="top" constant="8" id="NAF-S0-exj"/>
-                        <constraint firstItem="lj1-dl-0Q2" firstAttribute="leading" secondItem="OpL-RW-dEx" secondAttribute="leading" constant="16" id="UfO-DC-tF7"/>
+                        <constraint firstItem="lj1-dl-0Q2" firstAttribute="leading" secondItem="OpL-RW-dEx" secondAttribute="leading" constant="8" id="UfO-DC-tF7"/>
                         <constraint firstAttribute="trailing" secondItem="JNh-nS-mrh" secondAttribute="trailing" constant="16" id="WE8-cQ-aor"/>
                         <constraint firstItem="jVa-6b-URO" firstAttribute="centerY" secondItem="lj1-dl-0Q2" secondAttribute="centerY" multiplier="2/3" id="XPs-FG-oFY"/>
                         <constraint firstAttribute="trailing" secondItem="afF-d8-4Kq" secondAttribute="trailing" constant="16" id="Yqt-3Y-bEY"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lj1-dl-0Q2" secondAttribute="bottom" constant="8" id="h5i-xg-28K"/>
                         <constraint firstItem="afF-d8-4Kq" firstAttribute="top" secondItem="jVa-6b-URO" secondAttribute="bottom" constant="8" id="j3y-8R-QQ7"/>
-                        <constraint firstItem="afF-d8-4Kq" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="16" id="oHR-PO-Wc7"/>
+                        <constraint firstItem="afF-d8-4Kq" firstAttribute="leading" secondItem="lj1-dl-0Q2" secondAttribute="trailing" constant="8" id="oHR-PO-Wc7"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JNh-nS-mrh" secondAttribute="bottom" constant="8" id="ocd-ga-lYo"/>
                         <constraint firstItem="lj1-dl-0Q2" firstAttribute="centerY" secondItem="OpL-RW-dEx" secondAttribute="centerY" id="rjR-Ac-AS7"/>
                     </constraints>
