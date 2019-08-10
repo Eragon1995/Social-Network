@@ -14,11 +14,13 @@ enum NumberPhoto: Int {
     case one = 1
     case two = 2
     case three = 3
+    
 }
 
 protocol CellMainDelegate {
     func showMore(indexPath: IndexPath)
     func showImage(indexPath: IndexPath)
+    func donatePost(indexPath: IndexPath)
 }
 
 class CellMain: UITableViewCell {
@@ -43,6 +45,7 @@ class CellMain: UITableViewCell {
     var modelMyPost: MyPostModel.Datum?
     var section = -1
     @IBAction func touchLike(_ sender: Any) {
+        delegate.donatePost(indexPath: indexPath)
     }
     @IBAction func touchShowMore(_ sender: Any) {
         delegate.showMore(indexPath: indexPath)

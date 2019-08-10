@@ -34,5 +34,8 @@ target 'Social Network' do
   
   #Side Menu
   pod 'SideMenu'
+  
+  # Photopicker
+  pod 'TLPhotoPicker', '~> 1.8.4'
 
 end

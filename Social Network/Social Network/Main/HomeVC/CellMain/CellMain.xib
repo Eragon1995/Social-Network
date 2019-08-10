@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEA-Ef-I0t">
                         <rect key="frame" x="8" y="8" width="297" height="80"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvt" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-Za-u3u">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvt" translatesAutoresizingMaskIntoConstraints="NO" id="d5h-Za-u3u">
                                 <rect key="frame" x="8" y="8" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d5h-Za-u3u" secondAttribute="height" multiplier="1:1" id="Cb1-lt-KrZ"/>

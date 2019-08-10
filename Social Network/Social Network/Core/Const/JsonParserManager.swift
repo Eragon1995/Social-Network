@@ -19,6 +19,23 @@ class JsonParserManager {
         return nil
     }
     
+    static func postPhotoUpdate(jsonString: String) -> PostPhotoUpdateModel? {
+        if let jsonData = jsonString.data(using: .utf8) {
+            let data = try? JSONDecoder().decode(PostPhotoUpdateModel.self, from: jsonData)
+            return data;
+        }
+        return nil
+    }
+    
+    static func donatePost(jsonString: String) -> DonatePostModel? {
+        if let jsonData = jsonString.data(using: .utf8) {
+            let data = try? JSONDecoder().decode(DonatePostModel.self, from: jsonData)
+            return data;
+        }
+        return nil
+    }
+    
+    
     static func login(jsonString: String) -> LoginModel? {
         if let jsonData = jsonString.data(using: .utf8) {
             let data = try? JSONDecoder().decode(LoginModel.self, from: jsonData)

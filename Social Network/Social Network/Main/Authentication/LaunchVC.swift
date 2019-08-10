@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 let storage = Storage.storage()
-let storageRef = storage.reference(forURL: "gs://social-network-312be.appspot.com/")
+let storageRef = storage.reference(forURL: "gs://mangxahoi-8463d.appspot.com")
 
 class LaunchVC: BaseViewController {
 

@@ -13,6 +13,23 @@ class Repository: BaseRepository {
         params["userName"] = userName
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func donatePost(token: String, star: Int, postId: Int, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.DONATE_POST_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
+        params["star"] = star
+        params["post_id"] = postId
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
+    func createPost(token: String, roomType: Int, content: String, photoIds: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.CREATE_POST_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
+        params["room_type"] = roomType
+        params["photo_ids"] = photoIds
+        params["content"] = content
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
     func login(email: String, password: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
         let url = "\(URLConst.LOGIN_URL)"
         var params = Dictionary<String, Any>.init()

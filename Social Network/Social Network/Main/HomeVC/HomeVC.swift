@@ -19,6 +19,7 @@ class HomeVC: BaseViewController {
     var locationY: CGFloat = 0
     var listPostPublic: PostPublicModel?
     var userId: Int = -1
+    var start: Int = 1
     @IBAction func touchMenu(_ sender: Any) {
         present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
@@ -42,6 +43,18 @@ class HomeVC: BaseViewController {
                 self.showAlert(message: response.message)
             }
             self.tableView.reloadData()
+        }
+    }
+    func donatePost(postId: Int) {
+        self.showLoading()
+        let token = UserDataManager.shared.getToken() ?? ""
+        Repository().donatePost(token: token, star: self.start, postId: postId) { (response) in
+            self.hideLoading()
+            if response.isSuccess() {
+                self.showAlert(message: "Yeu thich thanh cong")
+            } else {
+                self.showAlert(message: response.message)
+            }
         }
     }
 }

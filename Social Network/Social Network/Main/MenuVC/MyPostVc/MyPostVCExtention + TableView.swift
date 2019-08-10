@@ -32,11 +32,15 @@ extension MyPostVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate
         }
     }
     func showMore(indexPath: IndexPath) {
-        let model = self.listPostPublic?.data?[indexPath.row]
-        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let model = self.listPostPublic?.data?[indexPath.row]
+//        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        showAlert(message: "Chức năng đang được hoàn thiện")
     }
-    
+    func donatePost(indexPath: IndexPath) {
+        let postId = listPostPublic?.data?[indexPath.row].id ?? 0
+        self.donatePost(postId: postId)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

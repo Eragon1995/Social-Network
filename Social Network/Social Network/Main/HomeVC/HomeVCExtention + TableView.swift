@@ -37,7 +37,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
         vc.model = model
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    func donatePost(indexPath: IndexPath) {
+        let postId = listPostPublic?.data?.list?[indexPath.row].id ?? 0
+        self.donatePost(postId: postId)
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -1,22 +1,21 @@
 //
-//  ShowCommentVC.swift
+//  ShowDetailMyPost.swift
 //  Social Network
 //
-//  Created by Husky on 7/29/19.
+//  Created by eragon on 8/10/19.
 //  Copyright © 2019 eragon. All rights reserved.
 //
 
 import UIKit
 
-class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
-    var model: PostPublicModel.List?
-    var start: Int = 1
+class ShowDetailMyPost: BaseViewController,CellMainDelegate, UITableViewDelegate, UITableViewDataSource  {
 
+    var model: MyPostModel.Datum?
+    var start: Int = 1
     @IBOutlet weak var tableView: UITableView!
     @IBAction func touchBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -89,7 +88,7 @@ class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
             cell.delegate = self
             cell.indexPath = indexPath
             let section = indexPath.row
-            cell.configCell(model: self.model!, section: section, controller: "ShowCommentVC")
+            cell.configCellMyPost(model: self.model!, section: section, controller: "ShowCommentVC")
             return cell
         } else {
             let cellTable = tableView.dequeueReusableCell(withIdentifier: "CellComment")
@@ -101,7 +100,7 @@ class ShowCommentVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
             }
             cell.selectionStyle = .none
             let data = self.model?.comments?[indexPath.row]
-            cell.configCell(model: data!, indexPath: indexPath)
+            cell.configCellMyPost(model: data!, indexPath: indexPath)
             return cell
         }
     }

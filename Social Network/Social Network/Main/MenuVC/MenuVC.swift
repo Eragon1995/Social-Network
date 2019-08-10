@@ -100,11 +100,13 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
             vc.userId = self.userId
             self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_4:
-            let vc = ListFriendVC.init(nibName: "ListFriendVC", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = ListFriendVC.init(nibName: "ListFriendVC", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
+            self.showAlert(message: "Chức năng đang được hoàn thiện")
         case MenuModel.MENU_5:
-            let vc = ChatHistoryVC.init(nibName: "ChatHistoryVC", bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc = ChatHistoryVC.init(nibName: "ChatHistoryVC", bundle: nil)
+//            self.navigationController?.pushViewController(vc, animated: true)
+            self.showAlert(message: "Chức năng đang được hoàn thiện")
         case MenuModel.MENU_6:
             let mainSB = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             let vc = mainSB.instantiateViewController(withIdentifier: "AuthenticationVC") as! AuthenticationVC

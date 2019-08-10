@@ -38,7 +38,6 @@
 		C8229E4622DC21BF0045A1C2 /* CellMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4422DC21BF0045A1C2 /* CellMain.swift */; };
 		C8229E4722DC21BF0045A1C2 /* CellMain.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8229E4522DC21BF0045A1C2 /* CellMain.xib */; };
 		C8229E4922DC586C0045A1C2 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8229E4822DC586C0045A1C2 /* RandomImage.swift */; };
-		C82C0C9322DECEF8001C2D8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */; };
 		C82C0C9622DEFA05001C2D8D /* PostNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C0C9522DEFA05001C2D8D /* PostNewVC.swift */; };
 		C8383B1D22D710E300E897BE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1C22D710E300E897BE /* HomeVC.swift */; };
 		C8383B2122D7111800E897BE /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8383B1F22D7111800E897BE /* MenuVC.swift */; };
@@ -115,6 +114,12 @@
 		DF6747A322C07FB100735AC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF6747A122C07FB100735AC9 /* Main.storyboard */; };
 		DF6747A522C07FB200735AC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF6747A422C07FB200735AC9 /* Assets.xcassets */; };
 		DF6747A822C07FB200735AC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF6747A622C07FB200735AC9 /* LaunchScreen.storyboard */; };
+		DFA6111322FEABFD007BEC25 /* ShowDetailMyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6111122FEABFD007BEC25 /* ShowDetailMyPost.swift */; };
+		DFA6111422FEABFD007BEC25 /* ShowDetailMyPost.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFA6111222FEABFD007BEC25 /* ShowDetailMyPost.xib */; };
+		DFA6111622FED4BD007BEC25 /* DonatePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6111522FED4BD007BEC25 /* DonatePostModel.swift */; };
+		DFA6111822FF2D0D007BEC25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFA6111722FF2D0D007BEC25 /* GoogleService-Info.plist */; };
+		DFA6111A22FF3405007BEC25 /* PostPhotoUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6111922FF3405007BEC25 /* PostPhotoUpdateModel.swift */; };
+		DFA6111C22FF4E93007BEC25 /* CreatePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6111B22FF4E93007BEC25 /* CreatePostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,7 +155,6 @@
 		C8229E4422DC21BF0045A1C2 /* CellMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMain.swift; sourceTree = "<group>"; };
 		C8229E4522DC21BF0045A1C2 /* CellMain.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellMain.xib; sourceTree = "<group>"; };
 		C8229E4822DC586C0045A1C2 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
-		C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C82C0C9522DEFA05001C2D8D /* PostNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewVC.swift; sourceTree = "<group>"; };
 		C8383B1C22D710E300E897BE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		C8383B1F22D7111800E897BE /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -229,6 +233,12 @@
 		DF6747A422C07FB200735AC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF6747A722C07FB200735AC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF6747A922C07FB200735AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFA6111122FEABFD007BEC25 /* ShowDetailMyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailMyPost.swift; sourceTree = "<group>"; };
+		DFA6111222FEABFD007BEC25 /* ShowDetailMyPost.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowDetailMyPost.xib; sourceTree = "<group>"; };
+		DFA6111522FED4BD007BEC25 /* DonatePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatePostModel.swift; sourceTree = "<group>"; };
+		DFA6111722FF2D0D007BEC25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DFA6111922FF3405007BEC25 /* PostPhotoUpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPhotoUpdateModel.swift; sourceTree = "<group>"; };
+		DFA6111B22FF4E93007BEC25 /* CreatePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostModel.swift; sourceTree = "<group>"; };
 		F0A974658951121B1B20476B /* Pods_Social_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Social_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -313,6 +323,9 @@
 				C8C2208922E597AB00D85639 /* UpdateProfileModel.swift */,
 				C8C2208D22E59AC700D85639 /* ProfileModel.swift */,
 				DF0E122522FC36890002EF3C /* MyPostModel.swift */,
+				DFA6111522FED4BD007BEC25 /* DonatePostModel.swift */,
+				DFA6111922FF3405007BEC25 /* PostPhotoUpdateModel.swift */,
+				DFA6111B22FF4E93007BEC25 /* CreatePostModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +333,7 @@
 		C80B027322FD704600928713 /* MyPostVc */ = {
 			isa = PBXGroup;
 			children = (
+				DFA6111022FEABB5007BEC25 /* ShowDetailMyPost */,
 				C80B027422FD706E00928713 /* MyPostVC.swift */,
 				C80B027522FD706E00928713 /* MyPostVC.xib */,
 				C80B027822FD7D6800928713 /* ExtentionMyPostVC + UISideMenu.swift */,
@@ -651,7 +665,7 @@
 				DF6747A422C07FB200735AC9 /* Assets.xcassets */,
 				DF6747A622C07FB200735AC9 /* LaunchScreen.storyboard */,
 				DF6747A922C07FB200735AC9 /* Info.plist */,
-				C82C0C9222DECEF8001C2D8D /* GoogleService-Info.plist */,
+				DFA6111722FF2D0D007BEC25 /* GoogleService-Info.plist */,
 			);
 			path = "Social Network";
 			sourceTree = "<group>";
@@ -663,6 +677,15 @@
 				C8229E4122DC18760045A1C2 /* LaunchVC.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		DFA6111022FEABB5007BEC25 /* ShowDetailMyPost */ = {
+			isa = PBXGroup;
+			children = (
+				DFA6111122FEABFD007BEC25 /* ShowDetailMyPost.swift */,
+				DFA6111222FEABFD007BEC25 /* ShowDetailMyPost.xib */,
+			);
+			path = ShowDetailMyPost;
 			sourceTree = "<group>";
 		};
 		E733A143617272DE74A74831 /* Pods */ = {
@@ -736,7 +759,6 @@
 			files = (
 				C8229E4722DC21BF0045A1C2 /* CellMain.xib in Resources */,
 				DF14338622D5C22C000BAEF5 /* LoadMoreFooterView.xib in Resources */,
-				C82C0C9322DECEF8001C2D8D /* GoogleService-Info.plist in Resources */,
 				DF6747A822C07FB200735AC9 /* LaunchScreen.storyboard in Resources */,
 				C81A4CC122EFE6D700352CD1 /* ShowImageVC.xib in Resources */,
 				DF14337222D5C22C000BAEF5 /* LoadingView.xib in Resources */,
@@ -752,9 +774,11 @@
 				DF6747A322C07FB100735AC9 /* Main.storyboard in Resources */,
 				C81BA34C22E954D40039CD35 /* CellListFriend.xib in Resources */,
 				DF14336A22D5C22C000BAEF5 /* SimplePopoverCell.xib in Resources */,
+				DFA6111822FF2D0D007BEC25 /* GoogleService-Info.plist in Resources */,
 				C8047F1D22E05AB500FC5799 /* ListFriendVC.xib in Resources */,
 				DF14336E22D5C22C000BAEF5 /* AlertViewController.xib in Resources */,
 				C81BA35122E957EB0039CD35 /* CellChat2.xib in Resources */,
+				DFA6111422FEABFD007BEC25 /* ShowDetailMyPost.xib in Resources */,
 				C81A4CC622EFE8A100352CD1 /* CellShowImage.xib in Resources */,
 				C8047F2422E06BB700FC5799 /* ChatHistoryVC.xib in Resources */,
 			);
@@ -816,15 +840,18 @@
 				DF14335B22D5C22C000BAEF5 /* Connectivity.swift in Sources */,
 				DF14335022D5C22C000BAEF5 /* UILabel+Extension.swift in Sources */,
 				DF14335822D5C22C000BAEF5 /* UITapGestureRecognizer+Extension.swift in Sources */,
+				DFA6111C22FF4E93007BEC25 /* CreatePostModel.swift in Sources */,
 				DF14335922D5C22C000BAEF5 /* Range+Extension.swift in Sources */,
 				DF14334F22D5C22C000BAEF5 /* UIColor+Extension.swift in Sources */,
 				DF14335422D5C22C000BAEF5 /* UIImage+Extension.swift in Sources */,
+				DFA6111622FED4BD007BEC25 /* DonatePostModel.swift in Sources */,
 				C82C0C9622DEFA05001C2D8D /* PostNewVC.swift in Sources */,
 				DF14337F22D5C22C000BAEF5 /* GifImage.swift in Sources */,
 				DF14337922D5C22C000BAEF5 /* BaseResponse.swift in Sources */,
 				C804213F22D8916E004562C1 /* LoginModel.swift in Sources */,
 				DF14338722D5C22C000BAEF5 /* JsonParserManager.swift in Sources */,
 				DF14337122D5C22C000BAEF5 /* AlertConfirmViewController.swift in Sources */,
+				DFA6111A22FF3405007BEC25 /* PostPhotoUpdateModel.swift in Sources */,
 				DF14334E22D5C22C000BAEF5 /* UIFont+Extension.swift in Sources */,
 				C8047F1F22E0615F00FC5799 /* UserModel.swift in Sources */,
 				DF14337522D5C22C000BAEF5 /* LoadingView.swift in Sources */,
@@ -849,6 +876,7 @@
 				DF14338B22D5C22C000BAEF5 /* UserDataManager.swift in Sources */,
 				DF14336322D5C22C000BAEF5 /* UIRegularLabel.swift in Sources */,
 				DF14337622D5C22C000BAEF5 /* LoadMoreActivityIndicator.swift in Sources */,
+				DFA6111322FEABFD007BEC25 /* ShowDetailMyPost.swift in Sources */,
 				C8383B2A22D723EA00E897BE /* MenuModel.swift in Sources */,
 				C8229E4622DC21BF0045A1C2 /* CellMain.swift in Sources */,
 				C8383B2622D7127500E897BE /* CellMenu.swift in Sources */,
