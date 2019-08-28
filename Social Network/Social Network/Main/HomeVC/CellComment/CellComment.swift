@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol CellCommentDelegate {
+    func donateComment(indexPath: IndexPath)
+}
+
 class CellComment: UITableViewCell {
 
+    var delegate: CellCommentDelegate! = nil
     @IBOutlet weak var imageHeigt: NSLayoutConstraint!
     @IBOutlet weak var imgMain: UIImageView!
     @IBOutlet weak var lblConten: UILabel!
@@ -23,6 +28,10 @@ class CellComment: UITableViewCell {
         // Initialization code
     }
 
+    @IBAction func touchLike(_ sender: Any) {
+        delegate.donateComment(indexPath: indexPath)
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         self.selectionStyle = .none

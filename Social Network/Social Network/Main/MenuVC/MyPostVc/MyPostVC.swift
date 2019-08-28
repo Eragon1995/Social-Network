@@ -11,6 +11,7 @@ import SideMenu
 
 class MyPostVC: BaseViewController {
 
+    @IBOutlet weak var lblUserNamePost: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerViewTop: NSLayoutConstraint!
@@ -20,6 +21,7 @@ class MyPostVC: BaseViewController {
     var listPostPublic: MyPostModel?
     var userId: Int = -1
     var start: Int = 1
+    var userName: String = ""
     @IBAction func touchMenu(_ sender: Any) {
         present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
@@ -30,6 +32,7 @@ class MyPostVC: BaseViewController {
         self.tableView.dataSource = self
         self.initSideMenu()
         self.getPostUser()
+        self.lblUserNamePost.text = "Bài viết của \(self.userName)"
     }
     
     func getPostUser() {

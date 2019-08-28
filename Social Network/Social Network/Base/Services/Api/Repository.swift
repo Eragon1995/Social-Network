@@ -30,6 +30,15 @@ class Repository: BaseRepository {
         params["content"] = content
         return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
     }
+    func createComment(token: String, postId: Int, content: String, photoIds: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
+        let url = "\(URLConst.CREATE_POST_COMMENT_URL)"
+        var params = Dictionary<String, Any>.init()
+        params["token"] = token
+        params["post_id"] = postId
+        params["photo_ids"] = photoIds
+        params["content"] = content
+        return self.callPostMethod(url: url, parameters: params, onComplete: callBack)
+    }
     func login(email: String, password: String, callBack: @escaping (ApiResponse<BaseResponse>) -> ()) -> () {
         let url = "\(URLConst.LOGIN_URL)"
         var params = Dictionary<String, Any>.init()

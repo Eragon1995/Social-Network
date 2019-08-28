@@ -28,5 +28,7 @@ enum URLConst {
     static let POST_PHOTO_UPLOAD = ApiConst.BASE_URL + "post/photo/upload"
     //create post
     static let CREATE_POST_URL =   ApiConst.BASE_URL + "post/create"
+    //comment create
+    static let CREATE_POST_COMMENT_URL =   ApiConst.BASE_URL + "comment/create"
 }
 

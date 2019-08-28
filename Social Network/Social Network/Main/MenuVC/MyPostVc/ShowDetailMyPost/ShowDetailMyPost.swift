@@ -25,7 +25,15 @@ class ShowDetailMyPost: BaseViewController,CellMainDelegate, UITableViewDelegate
         self.tabBarController?.tabBar.isHidden = true
         self.tableView.reloadData()
     }
-    
+    func showPost(indexPath: IndexPath) {
+    }
+    func commentPost(indexPath: IndexPath) {
+        let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let vc = mainSb.instantiateViewController(withIdentifier: "PostNewVC") as! PostNewVC
+        vc.controller = "Comment"
+        vc.postId = model?.comments?[indexPath.row].postID ?? 0
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func showImage(indexPath: IndexPath) {
         var listUrl: [String] = []
         if let listPhoto = self.model?.photos, listPhoto.count != 0 {

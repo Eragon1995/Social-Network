@@ -11,6 +11,19 @@ import UIKit
 import Kingfisher
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
+    func showPost(indexPath: IndexPath) {
+        let vc = MyPostVC.init(nibName: "MyPostVC", bundle: nil)
+        vc.userId = self.listPostPublic?.data?.list?[indexPath.row].userID ?? 0
+        vc.userName = self.listPostPublic?.data?.list?[indexPath.row].user?.userName ?? ""
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func commentPost(indexPath: IndexPath) {
+        let model = self.listPostPublic?.data?.list?[indexPath.row]
+        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
+        vc.model = model
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func showImage(indexPath: IndexPath) {
         var listUrl: [String] = []
         if let listPhoto = self.listPostPublic?.data?.list?[indexPath.row].photos, listPhoto.count != 0 {

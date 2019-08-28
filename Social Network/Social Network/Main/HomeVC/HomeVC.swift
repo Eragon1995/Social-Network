@@ -32,6 +32,10 @@ class HomeVC: BaseViewController {
         self.getPostPublic()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func getPostPublic() {
         self.showLoading()
         Repository().postPublic { [unowned self] (response) in

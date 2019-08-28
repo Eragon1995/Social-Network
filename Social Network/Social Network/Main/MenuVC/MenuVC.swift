@@ -17,6 +17,7 @@ class MenuVC: BaseViewController  {
     @IBOutlet weak var imgMain: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var userId: Int = -1
+    var userName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +29,11 @@ class MenuVC: BaseViewController  {
     
     func setupDataMenu() {
         self.arrMenuItem.removeAll()
-        self.arrMenuItem.append(MenuModel(imageResource: "ic_profile", menuName: "Trang chủ", id: MenuModel.MENU_1))
-        self.arrMenuItem.append(MenuModel(imageResource: "ic_profile", menuName: "Chỉnh sửa thông tin", id: MenuModel.MENU_2))
-        self.arrMenuItem.append(MenuModel(imageResource: "ic_post", menuName: "Bài viết của bạn", id: MenuModel.MENU_3))
-        self.arrMenuItem.append(MenuModel(imageResource: "ic_listFriend", menuName: "Danh sách bạn  ", id: MenuModel.MENU_4))
-        self.arrMenuItem.append(MenuModel(imageResource: "ic_logout", menuName: "Tin nhắn", id: MenuModel.MENU_5))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_menu1", menuName: "Trang chủ", id: MenuModel.MENU_1))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_menu1", menuName: "Chỉnh sửa thông tin", id: MenuModel.MENU_2))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_menu1", menuName: "Bài viết của bạn", id: MenuModel.MENU_3))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_menu1", menuName: "Danh sách bạn  ", id: MenuModel.MENU_4))
+        self.arrMenuItem.append(MenuModel(imageResource: "ic_menu1", menuName: "Tin nhắn", id: MenuModel.MENU_5))
         self.arrMenuItem.append(MenuModel(imageResource: "ic_logout", menuName: "Đăng xuất", id: MenuModel.MENU_6))
         self.tableView.reloadData()
     }
@@ -48,6 +49,7 @@ class MenuVC: BaseViewController  {
                 self.lblName.text = data?.data?.fullName ?? ""
                 self.lblEmail.text = data?.data?.userName ?? ""
                 self.userId = data?.data?.id ?? 0
+                self.userName = data?.data?.fullName ?? ""
                 if let avtUrl = UserDataManager.shared.getLinkAvatar(), avtUrl != "" {
                     if let url = URL(string: avtUrl) {
                         self.imgMain.kf.setImage(with: url)
@@ -93,6 +95,7 @@ extension MenuVC: UITableViewDelegate, UITableViewDataSource {
             let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
             let vc = mainSb.instantiateViewController(withIdentifier: "ProfileRegisterVC") as! ProfileRegisterVC
             vc.controller = "Edit"
+            vc.userName = self.userName
             self.navigationController?.pushViewController(vc, animated: true)
         case MenuModel.MENU_3:
             print("Selected \(indexPath.row)")

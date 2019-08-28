@@ -21,8 +21,14 @@ class PostNewVC: BaseViewController {
     @IBOutlet weak var tfContent: UITextField!
     @IBOutlet weak var img3: UIImageView!
     @IBOutlet weak var img2: UIImageView!
+    var controller: String = ""
+    var postId: Int = -1
     @IBAction func touchPost(_ sender: Any) {
-        self.createPost()
+        if self.controller == "Comment" {
+            self.creatCommnet()
+        } else {
+            self.createPost()
+        }
     }
     @IBAction func touchTest(_ sender: Any) {
         self.initVC()
@@ -37,52 +43,103 @@ class PostNewVC: BaseViewController {
 //        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
 //        activityViewController.popoverPresentationController?.sourceView = self.view
 //        self.present(activityViewController, animated: true, completion: nil)
-        self.listIdImg.removeAll()
-        let vc = BSImagePickerViewController()
-        vc.maxNumberOfSelections = 3
-        vc.takePhotos = true
-        bs_presentImagePickerController(vc, animated: true,
-                                        select: { (asset: PHAsset) -> Void in
-        }, deselect: { (asset: PHAsset) -> Void in
-            
-        }, cancel: { (assets: [PHAsset]) -> Void in
-            
-        }, finish: { (assets: [PHAsset]) -> Void in
-            var dataImg = [Data]()
-            dataImg.removeAll()
-            for asset in assets {
-                let manager = PHImageManager.default()
-                let option = PHImageRequestOptions()
-                var image = UIImage()
-                option.isSynchronous = true
-                manager.requestImage(for: asset, targetSize: CGSize(width: 375, height: 375), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
-                    image = result!
-                    let i = image.pngData() ?? Data()
-                    dataImg.append(i)
-                    let fileName = NSUUID().uuidString
-                    self.uploadImage(data: i, withName: "uploadFile", fileName: "\(fileName).jpeg", mimeType: "image/jpeg")
-                })
-            }
-            if dataImg.count == 1 {
-                self.imgTest.isHidden = false
-                self.imgTest.image = UIImage(data: dataImg[0])
-            }
-            if dataImg.count == 2 {
-                self.imgTest.isHidden = false
-                self.img2.isHidden = false
-                self.imgTest.image = UIImage(data: dataImg[0])
-                self.img2.image = UIImage(data: dataImg[1])
-            }
-            if dataImg.count == 3 {
-                self.imgTest.isHidden = false
-                self.img2.isHidden = false
-                self.imgTest.image = UIImage(data: dataImg[0])
-                self.img2.image = UIImage(data: dataImg[1])
-                self.img3.isHidden = false
-                self.img3.image = UIImage(data: dataImg[2])
-                self.btnAddImg.isHidden = true
-            }
-        }, completion: nil)
+        
+        if self.controller == "Comment" {
+            self.listIdImg.removeAll()
+            let vc = BSImagePickerViewController()
+            vc.maxNumberOfSelections = 1
+            vc.takePhotos = true
+            bs_presentImagePickerController(vc, animated: true,
+                                            select: { (asset: PHAsset) -> Void in
+            }, deselect: { (asset: PHAsset) -> Void in
+                
+            }, cancel: { (assets: [PHAsset]) -> Void in
+                
+            }, finish: { (assets: [PHAsset]) -> Void in
+                var dataImg = [Data]()
+                dataImg.removeAll()
+                for asset in assets {
+                    let manager = PHImageManager.default()
+                    let option = PHImageRequestOptions()
+                    var image = UIImage()
+                    option.isSynchronous = true
+                    manager.requestImage(for: asset, targetSize: CGSize(width: 375, height: 375), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+                        image = result!
+                        let i = image.pngData() ?? Data()
+                        dataImg.append(i)
+                        let fileName = NSUUID().uuidString
+                        self.uploadImage(data: i, withName: "uploadFile", fileName: "\(fileName).jpeg", mimeType: "image/jpeg")
+                    })
+                }
+                if dataImg.count == 1 {
+                    self.imgTest.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                }
+                if dataImg.count == 2 {
+                    self.imgTest.isHidden = false
+                    self.img2.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                    self.img2.image = UIImage(data: dataImg[1])
+                }
+                if dataImg.count == 3 {
+                    self.imgTest.isHidden = false
+                    self.img2.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                    self.img2.image = UIImage(data: dataImg[1])
+                    self.img3.isHidden = false
+                    self.img3.image = UIImage(data: dataImg[2])
+                    self.btnAddImg.isHidden = true
+                }
+            }, completion: nil)
+        } else {
+            self.listIdImg.removeAll()
+            let vc = BSImagePickerViewController()
+            vc.maxNumberOfSelections = 3
+            vc.takePhotos = true
+            bs_presentImagePickerController(vc, animated: true,
+                                            select: { (asset: PHAsset) -> Void in
+            }, deselect: { (asset: PHAsset) -> Void in
+                
+            }, cancel: { (assets: [PHAsset]) -> Void in
+                
+            }, finish: { (assets: [PHAsset]) -> Void in
+                var dataImg = [Data]()
+                dataImg.removeAll()
+                for asset in assets {
+                    let manager = PHImageManager.default()
+                    let option = PHImageRequestOptions()
+                    var image = UIImage()
+                    option.isSynchronous = true
+                    manager.requestImage(for: asset, targetSize: CGSize(width: 375, height: 375), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+                        image = result!
+                        let i = image.pngData() ?? Data()
+                        dataImg.append(i)
+                        let fileName = NSUUID().uuidString
+                        self.uploadImage(data: i, withName: "uploadFile", fileName: "\(fileName).jpeg", mimeType: "image/jpeg")
+                    })
+                }
+                if dataImg.count == 1 {
+                    self.imgTest.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                }
+                if dataImg.count == 2 {
+                    self.imgTest.isHidden = false
+                    self.img2.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                    self.img2.image = UIImage(data: dataImg[1])
+                }
+                if dataImg.count == 3 {
+                    self.imgTest.isHidden = false
+                    self.img2.isHidden = false
+                    self.imgTest.image = UIImage(data: dataImg[0])
+                    self.img2.image = UIImage(data: dataImg[1])
+                    self.img3.isHidden = false
+                    self.img3.image = UIImage(data: dataImg[2])
+                    self.btnAddImg.isHidden = true
+                }
+            }, completion: nil)
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +161,29 @@ class PostNewVC: BaseViewController {
         self.img3.isHidden = true
         self.listIdImg.removeAll()
         self.btnAddImg.isHidden = false
+    }
+    
+    func creatCommnet() {
+        if self.tfContent.text?.count == 0 {
+            self.showAlertMessage(message: "Nội dụng không được để trống") {
+                self.tfContent.becomeFirstResponder()
+            }
+            return
+        }
+        self.showLoading()
+        let token = UserDataManager.shared.getToken() ?? ""
+        Repository().createComment(token: token, postId: self.postId, content: self.tfContent.text ?? "", photoIds: "\(self.listIdImg)") { (response) in
+            self.hideLoading()
+            if response.isSuccess() {
+                self.showAlertMessage(message: "Bình luận thành công", callback: {
+                    let mainSb = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+                    let vc = mainSb.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            } else {
+                self.showAlert(message: response.message)
+            }
+        }
     }
     
     func createPost() {
@@ -161,8 +241,8 @@ class PostNewVC: BaseViewController {
                                                 {
                                                     let idImg = item["id"].int ?? 0
                                                     let idString: String = "\(idImg)"
-                                                    print("LEU LEU \(idString) \(idImg)")
-                                                    self.listIdImg.append(idString)
+
+                                                self.listIdImg.append(idString)
                                                 }
                                             }
                                         }

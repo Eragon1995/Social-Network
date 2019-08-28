@@ -13,7 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyPostVC" customModule="Social_Network" customModuleProvider="target">
             <connections>
                 <outlet property="headerView" destination="uZJ-ZV-dh6" id="qGf-fR-aLm"/>
-                <outlet property="headerViewTop" destination="LPl-lt-Hzr" id="htJ-m2-9MQ"/>
+                <outlet property="headerViewTop" destination="4cj-bS-mkH" id="8Bf-2V-EJP"/>
+                <outlet property="lblUserNamePost" destination="aEz-gV-C0o" id="N1x-sB-aFX"/>
                 <outlet property="tableView" destination="u5g-rk-fWW" id="zGf-4T-fbw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,24 +27,33 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uZJ-ZV-dh6">
                     <rect key="frame" x="0.0" y="44" width="414" height="75"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-Xo-7Zt">
-                            <rect key="frame" x="16" y="18" width="39" height="39"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bzc-Xo-7Zt">
+                            <rect key="frame" x="16" y="8" width="59" height="59"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Bzc-Xo-7Zt" secondAttribute="height" multiplier="1:1" id="20j-Wm-Znc"/>
                             </constraints>
-                            <state key="normal" title="Menu">
+                            <state key="normal" image="ic_menu">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
                                 <action selector="touchMenu:" destination="-1" eventType="touchUpInside" id="FjX-b6-6mq"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEz-gV-C0o">
+                            <rect key="frame" x="91" y="37.5" width="307" height="0.0"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.66666668650000005" green="0.32226743940000002" blue="0.43461429969999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="centerY" secondItem="uZJ-ZV-dh6" secondAttribute="centerY" id="FD2-VW-L53"/>
+                        <constraint firstAttribute="trailing" secondItem="aEz-gV-C0o" secondAttribute="trailing" constant="16" id="Iqr-6l-W1v"/>
                         <constraint firstAttribute="height" constant="75" id="LPl-lt-Hzr"/>
+                        <constraint firstItem="aEz-gV-C0o" firstAttribute="leading" secondItem="Bzc-Xo-7Zt" secondAttribute="trailing" constant="16" id="Oui-RG-udA"/>
                         <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="leading" secondItem="uZJ-ZV-dh6" secondAttribute="leading" constant="16" id="cwz-Iz-thg"/>
+                        <constraint firstItem="aEz-gV-C0o" firstAttribute="centerY" secondItem="uZJ-ZV-dh6" secondAttribute="centerY" id="lcE-2U-UOO"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Bzc-Xo-7Zt" secondAttribute="bottom" constant="8" id="sH6-Jf-Vpt"/>
                         <constraint firstItem="Bzc-Xo-7Zt" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uZJ-ZV-dh6" secondAttribute="top" constant="8" id="tRG-Dn-M5X"/>
                     </constraints>
@@ -67,4 +77,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="133.92857142857142"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_menu" width="30" height="30"/>
+    </resources>
 </document>

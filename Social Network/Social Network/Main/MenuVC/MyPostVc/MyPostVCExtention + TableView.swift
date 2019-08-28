@@ -11,6 +11,14 @@ import UIKit
 import Kingfisher
 
 extension MyPostVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate {
+    func showPost(indexPath: IndexPath) {
+        
+    }
+    
+    func commentPost(indexPath: IndexPath) {
+        
+    }
+    
     func showImage(indexPath: IndexPath) {
         var listUrl: [String] = []
         if let listPhoto = self.listPostPublic?.data?[indexPath.row].photos, listPhoto.count != 0 {
@@ -31,12 +39,14 @@ extension MyPostVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     func showMore(indexPath: IndexPath) {
-//        let model = self.listPostPublic?.data?[indexPath.row]
+//        let model = self.listPostPublic?.data?.list?[indexPath.row]
 //        let vc = ShowCommentVC.init(nibName: "ShowCommentVC", bundle: nil)
+//        vc.model = model
 //        self.navigationController?.pushViewController(vc, animated: true)
-        showAlert(message: "Chức năng đang được hoàn thiện")
     }
+    
     func donatePost(indexPath: IndexPath) {
         let postId = listPostPublic?.data?[indexPath.row].id ?? 0
         self.donatePost(postId: postId)
@@ -65,6 +75,7 @@ extension MyPostVC: UITableViewDelegate, UITableViewDataSource, CellMainDelegate
         if let data = self.listPostPublic?.data?[section] {
             cell.configCellMyPost(model: data, section: section, controller: "HomeVC")
         }
+        cell.stackView.isHidden = true
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -26,24 +26,32 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết bài viết" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmt-vp-fzc">
                             <rect key="frame" x="64" y="8" width="334" height="32"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hid-pS-alO">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hid-pS-alO">
                             <rect key="frame" x="16" y="4" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="ACS-Ip-nd8"/>
                                 <constraint firstAttribute="width" secondItem="Hid-pS-alO" secondAttribute="height" multiplier="1:1" id="C0t-C2-PL6"/>
                             </constraints>
-                            <state key="normal" title="Back"/>
+                            <state key="normal" image="ic_back"/>
                             <connections>
                                 <action selector="touchBack:" destination="-1" eventType="touchUpInside" id="YZK-ng-8ky"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lg-R9-p7r">
+                            <rect key="frame" x="16" y="49" width="382" height="1"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="W54-Ns-5sQ"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="0lg-R9-p7r" firstAttribute="leading" secondItem="1AX-fc-ggT" secondAttribute="leading" constant="16" id="2vD-5b-95h"/>
                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Hid-pS-alO" secondAttribute="bottom" constant="4" id="Ds7-on-WfI"/>
                         <constraint firstItem="Hid-pS-alO" firstAttribute="top" secondItem="1AX-fc-ggT" secondAttribute="top" constant="4" id="EG2-J2-SVR"/>
                         <constraint firstItem="Hid-pS-alO" firstAttribute="leading" secondItem="1AX-fc-ggT" secondAttribute="leading" constant="16" id="FtE-IH-F2L"/>
@@ -52,10 +60,12 @@
                         <constraint firstAttribute="trailing" secondItem="Cmt-vp-fzc" secondAttribute="trailing" constant="16" id="QPP-G0-PNj"/>
                         <constraint firstItem="Hid-pS-alO" firstAttribute="centerY" secondItem="Cmt-vp-fzc" secondAttribute="centerY" id="TTd-Se-Kh5"/>
                         <constraint firstItem="Cmt-vp-fzc" firstAttribute="top" secondItem="1AX-fc-ggT" secondAttribute="top" constant="8" id="Zrx-Nw-aNc"/>
+                        <constraint firstAttribute="bottom" secondItem="0lg-R9-p7r" secondAttribute="bottom" id="aet-7w-wpp"/>
                         <constraint firstItem="Cmt-vp-fzc" firstAttribute="leading" secondItem="Hid-pS-alO" secondAttribute="trailing" constant="8" id="tQP-wU-Yw7"/>
+                        <constraint firstAttribute="trailing" secondItem="0lg-R9-p7r" secondAttribute="trailing" constant="16" id="vgz-gv-sWc"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-dG-glm">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-dG-glm">
                     <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
@@ -73,4 +83,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_back" width="25" height="25"/>
+    </resources>
 </document>

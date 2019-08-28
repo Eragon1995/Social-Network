@@ -40,6 +40,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sME-uh-9sg">
+                                <rect key="frame" x="8" y="8" width="64" height="64"/>
+                                <connections>
+                                    <action selector="touchShowPost:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5Vs-Sj-ueq"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3O-GS-Ozy">
                                 <rect key="frame" x="80" y="36.5" width="201" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -61,11 +67,15 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="d5h-Za-u3u" secondAttribute="bottom" constant="8" id="BrM-Js-x6T"/>
                             <constraint firstItem="Yk2-zy-b22" firstAttribute="leading" secondItem="d5h-Za-u3u" secondAttribute="trailing" constant="8" id="DdH-YK-HdG"/>
                             <constraint firstAttribute="trailing" secondItem="Yk2-zy-b22" secondAttribute="trailing" constant="16" id="FgN-po-3Gq"/>
+                            <constraint firstItem="sME-uh-9sg" firstAttribute="top" secondItem="d5h-Za-u3u" secondAttribute="top" id="I0T-vA-pDp"/>
+                            <constraint firstItem="sME-uh-9sg" firstAttribute="leading" secondItem="d5h-Za-u3u" secondAttribute="leading" id="IMO-GO-AL2"/>
                             <constraint firstAttribute="trailing" secondItem="b3O-GS-Ozy" secondAttribute="trailing" constant="16" id="KRI-aE-aNB"/>
                             <constraint firstItem="d5h-Za-u3u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AEA-Ef-I0t" secondAttribute="top" constant="8" id="SFR-lz-BRv"/>
                             <constraint firstItem="b3O-GS-Ozy" firstAttribute="top" secondItem="Yk2-zy-b22" secondAttribute="bottom" constant="8" id="V4T-8O-fQm"/>
                             <constraint firstItem="d5h-Za-u3u" firstAttribute="centerY" secondItem="AEA-Ef-I0t" secondAttribute="centerY" id="WU0-DH-PkM"/>
                             <constraint firstItem="Yk2-zy-b22" firstAttribute="top" secondItem="d5h-Za-u3u" secondAttribute="top" id="bZb-gr-Spa"/>
+                            <constraint firstItem="sME-uh-9sg" firstAttribute="trailing" secondItem="d5h-Za-u3u" secondAttribute="trailing" id="bvw-3w-ymJ"/>
+                            <constraint firstItem="sME-uh-9sg" firstAttribute="bottom" secondItem="d5h-Za-u3u" secondAttribute="bottom" id="ctw-eQ-9bW"/>
                             <constraint firstItem="6Qc-Le-Tmt" firstAttribute="leading" secondItem="AEA-Ef-I0t" secondAttribute="leading" constant="8" id="dq6-nX-xce"/>
                             <constraint firstItem="d5h-Za-u3u" firstAttribute="leading" secondItem="AEA-Ef-I0t" secondAttribute="leading" constant="8" id="m5Z-Ik-DUq"/>
                             <constraint firstAttribute="trailing" secondItem="6Qc-Le-Tmt" secondAttribute="trailing" constant="16" id="tgg-NI-LXE"/>
@@ -179,6 +189,9 @@
                                         <state key="normal" title="Comment">
                                             <color key="titleColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toucComment:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FGZ-Dm-WQn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -324,6 +337,7 @@
                 <outlet property="lblNumberComment" destination="vPb-ab-QO7" id="boX-SM-gb9"/>
                 <outlet property="lblNumberLike" destination="kPi-n9-f01" id="EYx-4W-JAH"/>
                 <outlet property="lblTitle" destination="Yto-nv-Tbm" id="FAm-4U-CJn"/>
+                <outlet property="stackView" destination="ZFm-fC-ZgO" id="oYl-LU-e6X"/>
                 <outlet property="viewImage1" destination="xEx-HQ-tKL" id="bPA-HF-P1d"/>
                 <outlet property="viewImage2" destination="sw2-au-mau" id="Mz4-9k-VQw"/>
                 <outlet property="viewImage3" destination="mp0-vd-VMj" id="XpP-Ak-C0C"/>

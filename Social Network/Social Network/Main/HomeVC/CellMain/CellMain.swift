@@ -21,6 +21,8 @@ protocol CellMainDelegate {
     func showMore(indexPath: IndexPath)
     func showImage(indexPath: IndexPath)
     func donatePost(indexPath: IndexPath)
+    func commentPost(indexPath: IndexPath)
+    func showPost(indexPath: IndexPath)
 }
 
 class CellMain: UITableViewCell {
@@ -41,6 +43,7 @@ class CellMain: UITableViewCell {
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var imgAvatar: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
     var model: PostPublicModel.List?
     var modelMyPost: MyPostModel.Datum?
     var section = -1
@@ -52,6 +55,12 @@ class CellMain: UITableViewCell {
     }
     @IBAction func toucShowImage(_ sender: Any) {
         delegate.showImage(indexPath: indexPath)
+    }
+    @IBAction func toucComment(_ sender: Any) {
+        delegate.commentPost(indexPath: indexPath)
+    }
+    @IBAction func touchShowPost(_ sender: Any) {
+        delegate.showPost(indexPath: indexPath)
     }
     override func awakeFromNib() {
         super.awakeFromNib()
